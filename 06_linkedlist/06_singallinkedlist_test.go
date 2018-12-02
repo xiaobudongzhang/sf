@@ -57,6 +57,7 @@ func TestLinkedList_FindByIndex(t *testing.T) {
 }
 
 func PrintFunc()  {
+	fmt.Println("--------------------------------------")
 	funName, _,_,ok := runtime.Caller(1)
 	if ok {
 		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())

@@ -94,6 +94,20 @@ func (this *LinkedList) FindByIndex(index uint) *ListNode {
 	return cur
 }
 
+func (this *LinkedList) FindByVal(val interface{}) *ListNode {
+	if val == nil {
+		return nil
+	}
+	cur := this.head.next
+	for cur != nil {
+		if cur.value == val {
+			return cur
+		}
+		cur = cur.next
+	}
+	return nil
+}
+
 func (this *LinkedList) DeleteNode(p *ListNode) bool {
 	if nil == p || p == this.head {
 		return false
@@ -106,15 +120,31 @@ func (this *LinkedList) DeleteNode(p *ListNode) bool {
 	return true
 }
 
+func (this *LinkedList) DeleteLastNode() bool {
+	if nil == this.head.next {
+		return false
+	}
+	prev := this.head
+	cur := this.head.next
+
+	for nil != cur {
+		cur = cur.next
+		prev = prev.next
+	}
+	cur = nil
+	this.length--
+	return true
+}
+
 func (this *LinkedList) Print()  {
 
-	cur := this.head
+	cur := this.head.next
 	fmt.Printf("length:%d\n", this.length)
 	for i := uint(0); i <= this.length ; i++ {
-		if (cur.next == nil){
+		if (cur == nil){
 			break
 		}
-		fmt.Printf("value:%+v\n", cur.next.GetValue())
-		cur.next = cur.next.next
+		fmt.Printf("value:%+v\n", cur.GetValue())
+		cur = cur.next
 	}
 }
