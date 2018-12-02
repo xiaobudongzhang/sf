@@ -136,6 +136,23 @@ func (this *LinkedList) DeleteLastNode() bool {
 	return true
 }
 
+func (this *LinkedList) Reverse(start *ListNode) bool {
+	if this.length < 4 {
+		return true
+	}
+	var newLinkHead *ListNode = nil
+	cur := start.next
+
+	for nil != cur  {
+		oldNext := cur.next
+		cur.next = newLinkHead
+		newLinkHead = cur
+		cur = oldNext
+	}
+	start.next = newLinkHead
+	return true
+}
+
 func (this *LinkedList) Print()  {
 
 	cur := this.head.next

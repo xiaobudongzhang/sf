@@ -53,9 +53,32 @@ func TestLinkedList_FindByIndex(t *testing.T) {
 	linkedList.InsertToTail("newNode3")
 	linkedList.InsertToTail("newNode4")
 	cur := linkedList.FindByIndex(2)
-	fmt.Printf("xv: %v", cur.GetValue())
+	fmt.Printf("xv: %v\n", cur.GetValue())
 }
 
+func TestLinkedList_Reverse(t *testing.T) {
+	PrintFunc()
+	linkedList := NewLinkedList()
+
+	linkedList.InsertToTail("newNode1")
+	linkedList.InsertToTail("newNode2")
+	linkedList.InsertToTail("newNode3")
+	linkedList.InsertToTail("newNode4")
+	linkedList.InsertToTail("newNode5")
+	linkedList.InsertToTail("newNode6")
+	linkedList.InsertToTail("newNode7")
+	linkedList.InsertToTail("newNode8")
+	linkedList.InsertToTail("newNode9")
+
+	step := linkedList.length / 2
+	if linkedList.length % 2 != 0{
+		step++
+	}
+	midP := linkedList.FindByIndex(step)
+
+	linkedList.Reverse(midP)
+	linkedList.Print()
+}
 func PrintFunc()  {
 	fmt.Println("--------------------------------------")
 	funName, _,_,ok := runtime.Caller(1)
