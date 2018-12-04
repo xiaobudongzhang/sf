@@ -203,6 +203,28 @@ func (this *LinkedList) MergeSortedList(that *LinkedList) *LinkedList  {
 	return linkedList
 }
 
+func (this *LinkedList) DeleteBottomN(n int) bool{
+	if this.head.next == nil {
+		return true
+	}
+	fastP := this.head.next
+	for i := 0; i<= n && fastP != nil; i++ {
+		fastP = fastP.next
+	}
+
+	slowP := this.head.next
+	for nil != fastP {
+		slowP = slowP.next
+		fastP = fastP.next
+	}
+	if slowP == nil {
+		return true
+	}
+	next := slowP.next
+	slowP.next = next.next
+	next = nil
+	return true
+}
 
 func (this *LinkedList) Print()  {
 
