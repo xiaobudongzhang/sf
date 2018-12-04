@@ -226,6 +226,19 @@ func (this *LinkedList) DeleteBottomN(n int) bool{
 	return true
 }
 
+func (this *LinkedList) FindMiddleNode() *ListNode{
+	if this.head.next == nil {
+		return NewListNode(nil)
+	}
+	fast := this.head.next
+	slow := this.head.next
+
+	for nil != fast.next && nil != fast.next.next {
+		fast = fast.next.next
+		slow = slow.next
+	}
+	return slow
+}
 func (this *LinkedList) Print()  {
 
 	cur := this.head.next

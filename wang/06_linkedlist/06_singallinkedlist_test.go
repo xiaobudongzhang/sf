@@ -138,6 +138,26 @@ func TestLinkedList_DeleteBottomN(t *testing.T) {
 	linkedList.DeleteBottomN(-12)
 	linkedList.Print()
 }
+
+func TestLinkedList_FindMiddleNode(t *testing.T) {
+	PrintFunc()
+	linkedList := NewLinkedList()
+
+	linkedList.InsertToTail("newNode1")
+	linkedList.InsertToTail("newNode2")
+	linkedList.InsertToTail("newNode3")
+	linkedList.InsertToTail("newNode4")
+	linkedList.InsertToTail("newNode5")
+	linkedList.InsertToTail("newNode6")
+	linkedList.InsertToTail("newNode7")
+	linkedList.InsertToTail("newNode8")
+	linkedList.InsertToTail("newNode9")
+	linkedList.InsertToTail("newNode10")
+
+
+	midP := linkedList.FindMiddleNode()
+	fmt.Printf("%v", midP.value)
+}
 func PrintFunc()  {
 	fmt.Println("--------------------------------------")
 	funName, _,_,ok := runtime.Caller(1)
