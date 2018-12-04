@@ -153,6 +153,57 @@ func (this *LinkedList) Reverse(start *ListNode) bool {
 	return true
 }
 
+func (this *LinkedList) HasCycle() bool  {
+	slow := this.head
+	fast := this.head
+	for nil != slow.next && nil != fast.next.next {
+		slow = slow.next
+		fast = fast.next.next
+		if slow == fast {
+			return true
+		}
+	}
+	return false
+}
+
+func (this *LinkedList) MergeSortedList(that *LinkedList) *LinkedList  {
+	linkedList := NewLinkedList()
+
+	thisCur := this.head.next
+	thatCur := that.head.next
+	newCur := linkedList.head
+
+	for nil != thisCur && nil != thatCur {
+		if thisCur.value.(int) < thatCur.value.(int) {
+			newCur.next = thisCur
+			thisCur = thisCur.next
+			newCur = newCur.next
+		} else if thisCur.value.(int) > thatCur.value.(int) {
+			newCur.next = thatCur
+			thatCur = thatCur.next
+			newCur = newCur.next
+		} else {
+			oldThisCur := thisCur
+			newCur.next = oldThisCur
+
+			thisCur = thisCur.next
+
+			newCur.next.next = thatCur
+			thatCur = thatCur.next
+			newCur = newCur.next.next
+		}
+	}
+	if thisCur != nil {
+		newCur.next = thisCur
+	}
+	if thatCur != nil {
+		newCur.next = thatCur
+	}
+	linkedList.length = this.length + that.length
+	return linkedList
+}
+
+
 func (this *LinkedList) Print()  {
 
 	cur := this.head.next

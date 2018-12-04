@@ -79,6 +79,45 @@ func TestLinkedList_Reverse(t *testing.T) {
 	linkedList.Reverse(midP)
 	linkedList.Print()
 }
+func TestLinkedList_HasCycle(t *testing.T) {
+	PrintFunc()
+	linkedList := NewLinkedList()
+
+	linkedList.InsertToTail("newNode1")
+	linkedList.InsertToTail("newNode2")
+	linkedList.InsertToTail("newNode3")
+	linkedList.InsertToTail("newNode4")
+	linkedList.InsertToTail("newNode5")
+	linkedList.InsertToTail("newNode6")
+	linkedList.InsertToTail("newNode7")
+	linkedList.InsertToTail("newNode8")
+	linkedList.InsertToTail("newNode9")
+
+	lastp := linkedList.FindByIndex(linkedList.length - 1)
+	lastp_3 := linkedList.FindByIndex(linkedList.length - 3)
+	lastp.next = lastp_3
+	fmt.Printf("%v", linkedList.HasCycle())
+}
+
+func TestLinkedList_MergeSortedList(t *testing.T) {
+	PrintFunc()
+	linkedList := NewLinkedList()
+	linkedList2 := NewLinkedList()
+
+	linkedList.InsertToTail(1)
+	linkedList.InsertToTail(7)
+	linkedList.InsertToTail(9)
+
+	linkedList2.InsertToTail(1)
+	linkedList2.InsertToTail(3)
+	linkedList2.InsertToTail(4)
+	linkedList2.InsertToTail(8)
+	linkedList2.InsertToTail(10)
+	linkedList2.InsertToTail(15)
+
+	linkedList3 := linkedList2.MergeSortedList(linkedList)
+	linkedList3.Print()
+}
 func PrintFunc()  {
 	fmt.Println("--------------------------------------")
 	funName, _,_,ok := runtime.Caller(1)

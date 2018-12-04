@@ -58,7 +58,6 @@ public class UF {
        {
 
            int p = StdIn.readInt();
-
            int q = StdIn.readInt();
            if (uf.connected(p, q))
            {
