@@ -233,12 +233,13 @@ func (this *LinkedList) FindMiddleNode() *ListNode{
 	fast := this.head.next
 	slow := this.head.next
 
-	for nil != fast.next && nil != fast.next.next {
+	for nil != fast && nil != fast.next {
 		fast = fast.next.next
 		slow = slow.next
 	}
 	return slow
 }
+
 func (this *LinkedList) Print()  {
 
 	cur := this.head.next
