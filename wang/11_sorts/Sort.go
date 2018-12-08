@@ -1,5 +1,7 @@
 package _11_sorts
 
+import "fmt"
+
 func BubbleSort(a []int, n int)  {
 	for i := 0; i < n; i++  {
 		change := false
@@ -14,4 +16,19 @@ func BubbleSort(a []int, n int)  {
 		}
 	}
 
+}
+
+func InsertSort(a []int, n int)  {
+	if n < 2 {
+		return
+	}
+	for i := 1; i < n; i++ {
+		tmp := a[i]
+		for j := i -1; j > -1; j-- {
+			fmt.Printf("j:%v", j)
+			if tmp < a[j] {
+				a[j], a[j+1] = a[j+1], a[j]
+			}
+		}
+	}
 }
