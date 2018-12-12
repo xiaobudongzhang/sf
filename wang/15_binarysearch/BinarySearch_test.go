@@ -13,6 +13,11 @@ func TestBinarySearch(t *testing.T) {
 	fmt.Printf("index:%v\n", index)
 }
 
+func TestSqr(t *testing.T) {
+	PrintFunc()
+	fmt.Printf("Sqr:%v\n", Sqr(4))
+}
+
 func PrintFunc()  {
 	fmt.Println("--------------------------------------")
 	funName, _,_,ok := runtime.Caller(1)
