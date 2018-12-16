@@ -10,7 +10,7 @@ const MAX_LEVEL = 15;
 type Node struct {
 	val int
 	level int
-	forward []*Node//前面的指针指向下级往下的节点，最后的节点指向同级的后一个节点
+	forward []*Node//数组的下标表示第几层，数组的值是指针指向下一级，设计的很巧妙
 }
 
 type SkipList struct {
