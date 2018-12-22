@@ -3,6 +3,7 @@ package _3_tree
 import (
 	"09_queue"
 	"fmt"
+	"math"
 )
 
 //计算树的高度....
@@ -22,6 +23,13 @@ func (this *BST) Height(p *Node) int{
 	}else {
 		return rHeight + 1
 	}
+}
+
+func (this *BST) Height2(p *Node) float64{
+	if p == nil {
+		return 0
+	}
+	return math.Max(this.Height2(p.left), this.Height2(p.right)) + 1
 }
 
 //按层遍历(返回树的高度)

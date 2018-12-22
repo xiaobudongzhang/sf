@@ -25,4 +25,7 @@ func TestBinaryTree_InOrder(t *testing.T) {
 
 	height := bst.Height(bst.root)
 	fmt.Printf("height:%v\n", height)
+
+	height2 := bst.Height2(bst.root)
+	fmt.Printf("height2:%v\n", height2)
 }
