@@ -50,16 +50,20 @@ func (this *LinkedListQueue) DeQueue() interface{}  {
 	if this.head == nil {
 		this.tail = nil
 	}
-	fmt.Printf("oldNode:%v\n", oldNode)
 	return val
 }
 
-
+func (this *LinkedListQueue) IsEmpty() bool  {
+	return this.length == 0
+}
 func (this *LinkedListQueue) GetTail() *ListNode  {
 	return this.tail
 }
 func (this *LinkedListQueue) SetTail(v *ListNode )  {
 	this.tail = v
+}
+func (this *LinkedListQueue) Len()  int{
+	return this.length
 }
 func (this *LinkedListQueue) String() string {
 	fmt.Printf("tail:%v\n", this.tail)

@@ -1,15 +1,65 @@
 package _3_tree
 
 import (
-	"08_stack"
+	"09_queue"
+	"fmt"
 )
 
 //计算树的高度....
+func (this *BST) Height(p *Node) int{
+	lHeight := 0
+	rHeight := 0
 
+	if p == nil {
+		return  0
+	}
 
-//按层遍历
+	lHeight = this.Height(p.left)
+	rHeight = this.Height(p.right)
 
-func Te()  {
-	_8_stack.NewArrayStack(1)
+	if lHeight > rHeight {
+		return lHeight + 1
+	}else {
+		return rHeight + 1
+	}
+}
+
+//按层遍历(返回树的高度)
+
+func (this *BST)InOrder() int{
+	p := this.root
+	q := _9_queue.NewLinkedListQueue()
+
+	q.EnQueue(p)
+
+	qlen := q.Len()
+	i := 0
+	height := 0
+	fmt.Printf("level:0--")
+	for !q.IsEmpty(){
+		p := q.DeQueue().(*Node)
+		fmt.Printf("%+v ", p.data)
+
+		if p.left != nil {
+			q.EnQueue(p.left)
+		}
+
+		if p.right != nil {
+			q.EnQueue(p.right)
+		}
+
+		i++
+		if i == qlen {
+			height++
+			fmt.Printf("\n")
+			qlen = q.Len()
+			if qlen > 0 {
+				fmt.Printf("level:%v--", i)
+			}
+			i = 0
+		}
+	}
+	fmt.Printf("height:%v\n", height)
+	return height
 }
 
