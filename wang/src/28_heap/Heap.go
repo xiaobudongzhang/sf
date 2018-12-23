@@ -39,6 +39,7 @@ func (this *Heap)RemoveMax()  {
 	this.count--
 	this.Heap(this.count,1)
 }
+
 //从上往下
 func (this *Heap)Heap(count int, pos int) {
 	p := pos

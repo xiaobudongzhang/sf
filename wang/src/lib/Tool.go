@@ -13,3 +13,12 @@ func PrintFunc()  {
 	}
 }
 
+func Hash33(k interface{}, size int) int{
+	//time33
+	hash := 5381
+	for _,v := range k.(string) {
+		hash += (hash << 5) + int(v)
+	}
+	return (hash & 0x7FFFFFFF) % size
+}
+

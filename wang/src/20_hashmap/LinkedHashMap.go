@@ -37,7 +37,7 @@ func NewHashMap(size int) *HashMap {
 	}
 }
 func (this *HashMap) Insert(k interface{}, v interface{})  {
-	khash := this.hash(k)
+	khash := this.Hash(k)
 	hlist := this.htables[khash]
 	cur := hlist
 	for cur != nil {
@@ -83,7 +83,7 @@ func (this *HashMap) Insert(k interface{}, v interface{})  {
 }
 
 func (this *HashMap) Find(k interface{}) interface{}{
-	khash := this.hash(k)
+	khash := this.Hash(k)
 	hlist := this.htables[khash]
 	cur := hlist
 	for cur != nil {
@@ -99,7 +99,7 @@ func (this *HashMap) Find(k interface{}) interface{}{
 }
 
 func (this *HashMap) Delete(k interface{}) {
-	khash := this.hash(k)
+	khash := this.Hash(k)
 	hlist := this.htables[khash]
 	cur := hlist.hnext
 	prev := hlist
@@ -138,7 +138,7 @@ func (this *HashMap) Delete(k interface{}) {
 	}
 }
 
-func (this *HashMap) hash(k interface{}) int{
+func (this *HashMap) Hash(k interface{}) int{
 	//time33
 	hash := 5381
 	for _,v := range k.(string) {
