@@ -25,7 +25,7 @@ func (this *Heap)Insert(val int)  {
 	}
 	this.count++
 	this.data[this.count] = val
-	//堆化
+	//堆化(从下往上)
 	i := this.count
 	for (i / 2 >0) && this.data[i] > this.data[i/2]{
 		this.data[i], this.data[i/2] = this.data[i/2], this.data[i]
@@ -39,7 +39,7 @@ func (this *Heap)RemoveMax()  {
 	this.count--
 	this.Heap(this.count,1)
 }
-
+//从上往下
 func (this *Heap)Heap(count int, pos int) {
 	p := pos
 	//找到最大位置（自己与两个子类），交换
