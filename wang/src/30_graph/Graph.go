@@ -19,6 +19,7 @@ func NewGraph(size int) *Graph {
 			next:nil,
 		}
 	}
+	//第一个node存储的是a
 	return &Graph{
 		datasArr,
 	}
