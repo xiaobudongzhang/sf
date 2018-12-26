@@ -3,6 +3,7 @@ package _1_graph
 import (
 	"testing"
 	"lib"
+	"fmt"
 )
 
 func TestGraph_AddEdge(t *testing.T) {
@@ -29,6 +30,8 @@ func TestGraph_AddEdge(t *testing.T) {
 	graph.Print()
 
 	graph.BFS(0,6)
+	fmt.Printf("\n-------------\n")
+	graph.DFS(0,6)
 }
 
 func TestGraph_BFS(t *testing.T) {

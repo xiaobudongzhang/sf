@@ -9,6 +9,7 @@ type Graph struct {
 	nodeCount int
 	adj []*list.List
 }
+var found bool
 
 func NewGraph(count int) *Graph {
 	adj := make([]*list.List, count, count)
@@ -67,6 +68,43 @@ func (this *Graph)BFS(s int, t int)  {
 	}
 }
 
+func (this *Graph)DFS(s int, t int){
+	if s == t {
+		return
+	}
+	found = false
+	visited := make([]bool, this.nodeCount)
+	prev := make([]int, this.nodeCount)
+	for i:=1;i<this.nodeCount ;i++  {
+		prev[i]=-1
+	}
+	this.recurDfs(s, t, visited, prev)
+	this.printLine(prev, s, t)
+
+}
+
+func (this *Graph)recurDfs(w int, t int, visited []bool, prev []int)  {
+	if found == true {
+		return
+	}
+	visited[w] = true
+	if w == t {
+		found = true
+		return
+	}
+	q := this.adj[w].Front()
+	for  q!=nil {
+		pval := q.Value.(int)
+		if visited[pval] == true {
+			q = q.Next()
+			continue
+		}
+		prev[pval] = w
+
+		this.recurDfs(q.Value.(int), t, visited, prev )
+		q = q.Next()
+	}
+}
 func (this *Graph)printLine(prev []int, s int, t int)  {
 	if prev[t] != -1 && t != s{
 		this.printLine(prev, s, prev[t])
