@@ -1,6 +1,9 @@
 package _2_string
 
-import "math"
+import (
+	"math"
+	"fmt"
+)
 
 func GenerateBC(b string)[]int  {
 	bc := make([]int, 256)
@@ -97,8 +100,9 @@ func moveByGS(j int, plen int, suffix []int, prefix []bool) int {
 		return j - suffix[k] + 1
 	}
 	//好后缀的子串有匹配的前缀
-	for r := j + 2; r <= plen -1;r++  {
-		if prefix[r] == true {
+	for r := j + 2; r < plen;r++  {
+		if prefix[plen-r] == true {
+			fmt.Printf("x:%v",r)
 			return r
 		}
 	}
