@@ -116,17 +116,19 @@ func (this *Trie) Match(a string)  {
 			p = p.fail //失败的话查看最长子串有没有匹配的情况
 		}
 		p = p.children[index]
-		if p == nil {//如果没有匹配的从root重新开始
+		if p == nil {//如果没有匹配的从root重新开始,并且查找字符向下走
 			p = this.root
+			continue
 		}
 		tmp := p
-		for tmp != this.root  {
+		for tmp != this.root  {//整个for循环结束，查找字符往下走
 			if tmp.isEndingChar == true {
 				pos := i - tmp.length + 1
 				fmt.Printf("匹配的起始下标：%v;长度：%v",pos, tmp.length)
 			}
 			tmp = tmp.fail
 		}
+
 
 	}
 }

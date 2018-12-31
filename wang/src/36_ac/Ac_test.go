@@ -18,5 +18,5 @@ func TestAc_Macth(t *testing.T) {
 	trie.BuildFailurePointer()
 
 	//trie.InOrder()
-	trie.Match("xbcdy")
+	trie.Match("xbcdyax")
 }
