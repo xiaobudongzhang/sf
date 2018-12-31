@@ -22,3 +22,24 @@ func Hash33(k interface{}, size int) int{
 	return (hash & 0x7FFFFFFF) % size
 }
 
+
+func Min(a []int)  int{
+	min := a[0]
+	for i := 0; i < len(a); i++ {
+		if min > a[i] {
+			min = a[i]
+		}
+	}
+	return min
+}
+
+func Max(a []int) int {
+	max := a[0]
+	for i := 0; i < len(a); i++ {
+		if max < a[i] {
+			max = a[i]
+		}
+	}
+	return max
+}
+

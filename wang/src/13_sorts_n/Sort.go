@@ -3,6 +3,7 @@ package _3_sorts_n
 import (
 	//"fmt"
 	 "math"
+	"lib"
 )
 
 //import "fmt"
@@ -107,21 +108,9 @@ func bubbleSort(a []int, n int)  {
 }
 
 func min(a []int)  int{
-	min := a[0]
-	for i := 0; i < len(a); i++ {
-		if min > a[i] {
-			min = a[i]
-		}
-	}
-	return min
+  	return lib.Min(a)
 }
 
 func max(a []int) int {
-	max := a[0]
-	for i := 0; i < len(a); i++ {
-		if max < a[i] {
-			max = a[i]
-		}
-	}
-	return max
+	return lib.Max(a)
 }
