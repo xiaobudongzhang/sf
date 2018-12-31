@@ -112,14 +112,17 @@ func (this *Trie) Match(a string)  {
 
 	for i,v := range a{
 		index := v - int32(this.startChar)
+		//1.部分失败的话找子类
 		for p.children[index] == nil && p != this.root {
 			p = p.fail //失败的话查看最长子串有没有匹配的情况
 		}
 		p = p.children[index]
+		//2.没找到的话结束
 		if p == nil {//如果没有匹配的从root重新开始,并且查找字符向下走
 			p = this.root
 			continue
 		}
+		//3.找到的话，循环打印并结束
 		tmp := p
 		for tmp != this.root  {//整个for循环结束，查找字符往下走
 			if tmp.isEndingChar == true {
