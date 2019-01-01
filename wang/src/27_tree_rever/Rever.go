@@ -14,7 +14,7 @@ func Rever(arr []int, k int)  {
 		arr[i], arr[k-1] = arr[k-1], arr[i]//待排列的一位的所有可能性
 
 		Rever(arr, k -1)
-		arr[i], arr[k-1] = arr[k-1], arr[i]
+		arr[i], arr[k-1] = arr[k-1], arr[i]//保证数组不变
 	}
 
 }
