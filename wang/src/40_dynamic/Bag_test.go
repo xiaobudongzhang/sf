@@ -21,3 +21,12 @@ func TestKnapsack2(t *testing.T) {
 	max := Knapsack2(a, 10, 30)
 	fmt.Printf("max:%v\n", max)
 }
+
+func TestKnapsack3(t *testing.T) {
+	lib.PrintFunc()
+
+	a :=[]int{2,2,4,6,3}
+	b :=[]int{3,4,8,9,6}
+	max := Knapsack3(a, b,5, 9)
+	fmt.Printf("max:%v\n", max)
+}
