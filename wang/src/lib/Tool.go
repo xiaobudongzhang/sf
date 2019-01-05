@@ -43,3 +43,9 @@ func Max(a []int) int {
 	return max
 }
 
+func MinInt(a,b int) int {
+	if a > b {
+		return b
+	}
+	return a
+}
