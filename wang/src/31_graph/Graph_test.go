@@ -38,3 +38,9 @@ func TestGraph_BFS(t *testing.T) {
 	lib.PrintFunc()
 
 }
+
+func TestGraph_TopoSort(t *testing.T) {
+	lib.PrintFunc()
+
+
+}

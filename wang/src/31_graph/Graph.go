@@ -27,7 +27,7 @@ func (this *Graph)AddEdge(s int, t int)  {
 		return
 	}
 	this.adj[s].PushBack(t)
-	this.adj[t].PushBack(s)
+	//this.adj[t].PushBack(s)
 }
 
 func (this *Graph)BFS(s int, t int)  {
@@ -122,4 +122,87 @@ func (this *Graph)Print(){
 		}
 		fmt.Printf("\n")
 	}
+}
+
+func (this *Graph)TopoSort()  {
+
+	var inDegree []int
+	inDegree = make([]int, this.nodeCount)
+	for i:=0;i<this.nodeCount ;i++  {//记录每个顶点的被依赖关系
+		q := this.adj[i].Front()
+		for  q!=nil {
+			w := q.Value.(int)
+			inDegree[w]++
+			q = q.Next()
+		}
+	}
+
+	queue := list.New()
+
+	for i:=0;i<this.nodeCount ;i++  {//没有被依赖关系的顶点
+		if inDegree[i] == 0 {
+			queue.PushBack(i)
+		}
+	}
+
+	for queue.Len() > 0 {
+		node := queue.Front()
+		queue.Remove(node)
+		inode := node.Value.(int)
+		fmt.Printf("->%v", inode)
+
+		q := this.adj[inode].Front()
+		for  q!=nil {//遍历这个节点对应的依赖减一
+			w := q.Value.(int)
+			inDegree[w]--
+			if inDegree[w] == 0 {
+				queue.PushBack(w)
+			}
+			q = q.Next()
+		}
+	}
+}
+
+func (this *Graph)TopoSortByDFS()  {
+	//先构建逆邻接表
+	inverseAdj := make([]*list.List, this.nodeCount)
+	for i:=0;i< this.nodeCount;i++  {
+		inverseAdj[i] = list.New()
+	}
+
+	for i:=0;i<this.nodeCount ;i++  {
+		q := this.adj[i].Front()
+		for  q!=nil {//遍历这个节点对应的依赖减一
+		    iq := q.Value.(int)
+			inverseAdj[iq].PushBack(i)
+			q = q.Next()
+		}
+	}
+
+	visited := make([]bool, this.nodeCount)
+	for i:=0;i<this.nodeCount ;i++  {//深度优先遍历
+		if visited[i] == false {
+			visited[i] = true
+			this.dfs(i, inverseAdj, visited)
+		}
+	}
+}
+
+func (this *Graph)dfs(i int, inverseAdj []*list.List, visited []bool)  {
+
+	q := this.adj[i].Front()
+	for  q!=nil {//遍历这个节点对应的依赖减一
+		iq := q.Value.(int)
+
+		if visited[iq] == true {
+			q = q.Next()
+			continue
+		}
+		visited[iq] = true
+
+		this.dfs(iq, inverseAdj, visited)
+
+		q = q.Next()
+	}//先把i这个顶点可达的所有顶点都打印出来之后，再打印它自己
+	fmt.Printf("->%v", i)
 }
