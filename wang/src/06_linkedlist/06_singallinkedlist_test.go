@@ -165,3 +165,12 @@ func PrintFunc()  {
 		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())
 	}
 }
+
+func TestLinkedList_RemoveNthFromEnd(t *testing.T) {
+	PrintFunc()
+	linkedList := NewLinkedList()
+	linkedList.InsertToTail(1)
+
+	linkedList.RemoveNthFromEnd(1)
+	linkedList.Print()
+}

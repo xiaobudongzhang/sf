@@ -252,3 +252,27 @@ func (this *LinkedList) Print()  {
 		cur = cur.next
 	}
 }
+
+func (this *LinkedList) RemoveNthFromEnd(n int) *ListNode {
+	//快慢指针来一趟遍历,慢指针指向被删除的元素的前一个元素
+	fmt.Printf("%v\n", this.head)
+	slow := this.head
+	p :=  this.head
+	i := 0
+
+
+	for p.next != nil {
+		break
+		if i < n {
+			i++
+		}else{
+			slow = slow.next
+		}
+		p = p.next
+
+	}
+
+	slow.next = slow.next.next
+	this.length--
+	return this.head
+}
