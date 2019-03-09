@@ -10,26 +10,13 @@ func FindContentChildren(g []int, s []int) int {
 	sort.Ints(g)
 	sort.Ints(s)
 	fmt.Printf("%v,%v\n", g, s)
-	max := 0
-	for _, gx := range g {
-
-		if len(s) < 1{
-			break
+	max, i, j := 0, 0, 0
+	for i< len(g) && j < len(s) {
+		if s[j] >= g[i] {
+			i++
+			max++
 		}
-		//找到大于等于所需需求的饼干
-		for _,sx := range s {
-			if len(s) == 1 {
-				s = nil
-			}else {
-				s = s[1:]
-			}
-
-			if sx >= gx {
-				max++
-				break
-			}
-		}
+		j++
 	}
-
 	return max
 }

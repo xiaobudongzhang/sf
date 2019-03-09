@@ -9,6 +9,6 @@ import (
 func TestFindContentChildren(t *testing.T) {
 	lib.PrintFunc()
 
-	max := FindContentChildren([]int{1,2,3}, []int{1,1})
+	max := FindContentChildren([]int{7,8}, []int{3,4,5,6,7,8})
 	fmt.Printf("%v\n", max)
 }
