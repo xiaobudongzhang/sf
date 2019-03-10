@@ -1,4 +1,4 @@
-package tanxin
+package greedy
 
 import (
 	"sort"
