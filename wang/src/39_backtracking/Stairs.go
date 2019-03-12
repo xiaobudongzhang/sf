@@ -1,7 +1,7 @@
 package _9_backtracking
 
 import "fmt"
-
+var count int
 func ClimbStairs(n int) int {
 	count =0
 	climbStairsChild(n, 0)
