@@ -53,4 +53,5 @@ func TestArray_Print(t *testing.T) {
 	t.Log(arr.Find(9))
 	t.Log(arr.Find(11))
 	fmt.Printf(" TestArray_Print end .....\n")
+	//t.Error("b > b[:1] failed")
 }
