@@ -16,7 +16,7 @@ type Node struct {
 type SkipList struct {
 	head *Node
 	level int
-	length int
+	length int //元素数量
 }
 
 func newNode(v int,level int) *Node {
