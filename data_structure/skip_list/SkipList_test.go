@@ -1,12 +1,13 @@
 package skip_list
 
 import (
-	"testing"
+	"github.com/xiaobudongzhang/sf/lib"
 	"strconv"
-	//"fmt"
+	"testing"
 )
 
 func TestSkipList_Insert(t *testing.T) {
+	lib.PrintFunc()
 	skipList := NewSkipList()
 	for i:=1;i<50 ;i++  {
 		skipList.Insert("ele" + strconv.Itoa(i), float32(i))
