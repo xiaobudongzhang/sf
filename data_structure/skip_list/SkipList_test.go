@@ -1,12 +1,14 @@
 package skip_list
 
 import (
+	"github.com/xiaobudongzhang/lang/golang/basic/command"
 	"github.com/xiaobudongzhang/sf/lib"
 	"strconv"
 	"testing"
 )
 
 func TestSkipList_Insert(t *testing.T) {
+	command.Init()
 	lib.PrintFunc()
 	skipList := NewSkipList()
 	for i:=1;i<50 ;i++  {

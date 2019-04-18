@@ -9,7 +9,7 @@ func PrintFunc()  {
 	fmt.Println("--------------------------------------")
 	funName, _,_,ok := runtime.Caller(1)
 	if ok {
-		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())
+		fmt.Println("v1-funName+" + runtime.FuncForPC(funName).Name())
 	}
 }
 

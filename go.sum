@@ -1,0 +1,5 @@
+github.com/emirpasic/gods v1.12.0 h1:QAUIPSaCu4G+POclxeqb3F+WPpdKqFGlw36+yOzGlrg=
+github.com/emirpasic/gods v1.12.0/go.mod h1:YfzfFFoVP/catgzJb4IKIqXjX78Ha8FMSDh3ymbK86o=
+github.com/xiaobudongzhang/lang/golang v0.0.0-20190417235505-5a58564c1af8 h1:sIfhZh7zVQc++4zeqYp8GVMExehqMiv9+yCCpEVilrY=
+github.com/xiaobudongzhang/lang/golang v0.0.0-20190417235505-5a58564c1af8/go.mod h1:6c3azGQGxDr62lX9zfY+W/0/4uSDgLgeRlQgQH3fBvA=
+github.com/xiaobudongzhang/sf v0.0.0-20190417230413-5589526aeb9e/go.mod h1:1lUkUPVlfoi9H+mNAkOHBsBqXdPoH14fubRK1ldAvRs=
