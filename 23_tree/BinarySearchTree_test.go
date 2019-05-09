@@ -1,6 +1,7 @@
 package _3_tree
 
 import (
+	"github.com/xiaobudongzhang/sf/lib"
 	"testing"
 	"fmt"
 )
@@ -18,7 +19,7 @@ var compareFunc = func(v, node interface{}) int{
 }
 
 func TestBST_Find(t *testing.T) {
-	PrintFunc()
+	lib.PrintFunc()
 	bst := NewBST(10, compareFunc)
 	bst.Insert(2)
 	bst.Insert(11)
@@ -30,7 +31,7 @@ func TestBST_Find(t *testing.T) {
 }
 
 func TestBST_Insert(t *testing.T) {
-	PrintFunc()
+	lib.PrintFunc()
 	bst := NewBST(10, compareFunc)
 	bst.Insert(2)
 	bst.Insert(11)
@@ -41,7 +42,7 @@ func TestBST_Insert(t *testing.T) {
 }
 
 func TestBST_Delete(t *testing.T) {
-	PrintFunc()
+	lib.PrintFunc()
 	bst := NewBST(10, compareFunc)
 	bst.Insert(5)
 	bst.Insert(20)
