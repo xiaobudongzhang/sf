@@ -1,6 +1,9 @@
 package binary_tree
 
-import "fmt"
+import (
+	"container/list"
+	"fmt"
+)
 
 type Tree struct {
 	size int
@@ -30,7 +33,37 @@ func (this *Tree)Insert(data interface{}) bool {
 }
 //按层遍历
 func (this *Tree)InOrderPrint()  {
+	//将当前节点加入队列，直到节点没有子树，打印出当前节点
+	list := list.New()
+	list.PushBack(1)//从根开始便利
+	last := 1 //每一层的最后一个元素
 
+	for list.Len() > 0 {
+		ele := list.Front()
+		list.Remove(ele)
+
+		i := ele.Value.(int)
+		fmt.Printf("%v ", this.nodes[i])
+		if i == last {
+			fmt.Println("")
+		}
+		tmplast := last
+		if this.nodes[2 * i] != nil && 2 * i < this.nodesLen {
+			if i == last {//下一层的最后一个元素一定是最后一个元素的子元素
+				tmplast = 2 * i
+			}
+			list.PushBack(2 * i)
+		}
+		if this.nodes[2 * i + 1] != nil && (2 * i + 1) < this.nodesLen {
+			if i == last {//下一层的最后一个元素一定是最后一个元素的子元素
+				tmplast = 2 * i + 1
+			}
+			list.PushBack(2 * i + 1)
+		}
+
+		last = tmplast
+	}
+	fmt.Println("")
 }
 
 func (this Tree)Print(){
