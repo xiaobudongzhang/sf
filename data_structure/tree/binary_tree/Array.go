@@ -49,13 +49,13 @@ func (this *Tree)InOrderPrint()  {
 		}
 		tmplast := last
 		if this.nodes[2 * i] != nil && 2 * i < this.nodesLen {
-			if i == last {//下一层的最后一个元素一定是最后一个元素的子元素
+			if i == last {//最后一个元素一定是最后一个元素的子元素
 				tmplast = 2 * i
 			}
 			list.PushBack(2 * i)
 		}
 		if this.nodes[2 * i + 1] != nil && (2 * i + 1) < this.nodesLen {
-			if i == last {//下一层的最后一个元素一定是最后一个元素的子元素
+			if i == last {//最后一个元素一定是最后一个元素的子元素
 				tmplast = 2 * i + 1
 			}
 			list.PushBack(2 * i + 1)
