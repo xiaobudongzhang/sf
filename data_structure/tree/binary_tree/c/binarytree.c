@@ -10,7 +10,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<stdio.h>
-#include"list_queue.h"
+#include"./list_queue.c"
 
 typedef struct _treenode
 {
@@ -29,21 +29,21 @@ void binarytree_create(Tree **Root)
 	if (a == 100)
 	{
 		*Root = NULL;
+        return;
 	}
-	else
-	{
-		*Root = (Tnode *)malloc(sizeof(Tnode));
-		if (*Root == NULL)
-		{
-			return;
-		}
 
-		(*Root)->data = a;
-		printf("\r\n create %d 的左孩子:",a);
-		binarytree_create(&((*Root)->lchild));
-		printf("\r\n create %d 的右孩子:",a);
-		binarytree_create(&((*Root)->rchild));
-	}
+    *Root = (Tnode *)malloc(sizeof(Tnode));
+    if (*Root == NULL)
+    {
+        return;
+    }
+
+    (*Root)->data = a;
+    printf("\r\n create %d 的左孩子:",a);
+    binarytree_create(&((*Root)->lchild));
+    printf("\r\n create %d 的右孩子:",a);
+    binarytree_create(&((*Root)->rchild));
+
 
 	return ;
 }
@@ -187,7 +187,7 @@ int main()
 	Tree *root = NULL;
 
 	setenv("MALLOC_TRACE","1.txt",1);
-    mtrace();
+//    mtrace();
 	
 	printf("\r\n创建二叉树:");
 	binarytree_create(&root);
@@ -207,7 +207,7 @@ int main()
 
 	binarytree_destory(root);
 
-    muntrace();
+///    muntrace();
 	return 0;
 }
 
