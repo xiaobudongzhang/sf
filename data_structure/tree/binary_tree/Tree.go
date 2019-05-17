@@ -62,7 +62,6 @@ func (this *TreeList)InitEle2(node *Node) {
 	return
 }
 func (this *TreeList)InOrderPrint()  {
-	fmt.Println("-------------------------------------------------------------")
 	lists := list.New()
 	lists.PushBack(this.Root)
 	i := 0
@@ -89,5 +88,31 @@ func (this *TreeList)InOrderPrint()  {
 			fmt.Println("")
 		}
 	}
-	fmt.Println("-------------------------------------------------------------")
+}
+//self -> left -> right
+func (this *TreeList)PreOrderPrint(node *Node){
+	if node == nil {
+		return
+	}
+	fmt.Printf("%v", node.Ele)
+	this.PreOrderPrint(node.Left)
+	this.PreOrderPrint(node.Right)
+}
+
+func (this *TreeList)MidOrderPrint(node *Node){
+	if node == nil {
+		return
+	}
+	this.MidOrderPrint(node.Left)
+	fmt.Printf("%v", node.Ele)
+	this.MidOrderPrint(node.Right)
+}
+
+func (this *TreeList)PostOrderPrint(node *Node){
+	if node == nil {
+		return
+	}
+	this.PostOrderPrint(node.Left)
+	this.PostOrderPrint(node.Right)
+	fmt.Printf("%v", node.Ele)
 }
