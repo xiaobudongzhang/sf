@@ -44,7 +44,7 @@ func (this *LinkedQueue) Dequeue() interface{} {
 	}
 	ele := this.head.ele
 	this.head = this.head.next
-	if this.head == nil {
+	if this.head == nil {//if not do this, this tail pointer to a node
 		this.tail = nil
 	}
 	return ele
