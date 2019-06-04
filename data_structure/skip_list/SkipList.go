@@ -60,8 +60,11 @@ func (this *SkipList) Insert(ele interface{}, score float32) bool {
 	if lvl > this.level { //随机产生的层数大于现有的层数
 		for i := this.level; i < lvl; i++ {
 			rank[i] = 0
-			update[i] = this.head                 //指向下面的插入元素使用
-			update[i].level[i].span = this.length //会被重新赋值,所以是什么值没影响
+			update[i] = this.head //指向下面的插入元素使用
+			update[i].level[i].span = this.length
+			//当层级大于当前最大层级时，
+			// 新节点的span=update[i].level[i].span - (rank[0] - rank[i])，
+			//也就是总的节点减去新节点到初始节点的后的长度，也就是新节点到尾节点的跨度
 		}
 		this.level = lvl
 	}
