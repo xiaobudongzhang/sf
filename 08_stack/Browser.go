@@ -9,13 +9,13 @@ type Browser struct {
 
 func NewBrowser() *Browser {
 	return &Browser{
-		prev:NewArrayStack(3),
-		next:NewArrayStack(3),
+		prev: NewArrayStack(3),
+		next: NewArrayStack(3),
 	}
 }
 
 func (this *Browser) Prev() {
-	if this.next.IsEmpty(){
+	if this.next.IsEmpty() {
 		return
 	}
 	this.prev.Push(this.next.Pop())

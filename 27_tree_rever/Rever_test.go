@@ -1,11 +1,11 @@
 package _7_tree_rever
 
 import (
-	"testing"
 	"lib"
+	"testing"
 )
 
 func TestRever(t *testing.T) {
 	lib.PrintFunc()
-	Rever([]int{1,2,3}, 3)
+	Rever([]int{1, 2, 3}, 3)
 }

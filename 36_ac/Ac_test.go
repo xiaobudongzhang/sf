@@ -1,9 +1,9 @@
 package _6_ac
 
 import (
-	"testing"
-	"lib"
 	"35_trie"
+	"lib"
+	"testing"
 )
 
 func TestAc_Macth(t *testing.T) {
@@ -13,7 +13,6 @@ func TestAc_Macth(t *testing.T) {
 	trie.Insert("abcd")
 	trie.Insert("bcd")
 	trie.Insert("c")
-
 
 	trie.BuildFailurePointer()
 

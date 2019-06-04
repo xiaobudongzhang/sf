@@ -7,8 +7,8 @@ import (
 
 //@todo 暂不支持重复树
 type Node struct {
-	data interface{}
-	left *Node
+	data  interface{}
+	left  *Node
 	right *Node
 }
 
@@ -18,7 +18,7 @@ type BinarySearchTree struct {
 
 func newNode(data interface{}) *Node {
 	return &Node{
-		data:data,
+		data: data,
 	}
 }
 
@@ -96,8 +96,8 @@ func (tree *BinarySearchTree) Delete(data interface{}) bool {
 		minPp := p
 		//1.找到右子树的最小节点
 		for minP.left != nil {
-				minPp = minP
-				minP = minP.left
+			minPp = minP
+			minP = minP.left
 		}
 		//替换
 		p.data = minP.data
@@ -116,7 +116,6 @@ func (tree *BinarySearchTree) Delete(data interface{}) bool {
 	} else {
 		child = nil
 	}
-
 
 	if pp == nil {
 		tree.root = child
@@ -158,10 +157,10 @@ func (tree *BinarySearchTree) InOrderPrint() {
 		if qlen == i {
 			qlen = lists.Len()
 			i = 0
-			fmt.Println("")//分层
+			fmt.Println("") //分层
 		}
 
 	}
-	fmt.Println("")//分层
+	fmt.Println("") //分层
 
 }

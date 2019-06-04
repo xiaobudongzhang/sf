@@ -1,9 +1,9 @@
 package _1_dynamic
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
 
 func TestMindistP(t *testing.T) {

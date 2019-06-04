@@ -2,10 +2,10 @@ package _11_sorts
 
 //import "fmt"
 
-func BubbleSort(a []int, n int)  {
-	for i := 0; i < n; i++  {
+func BubbleSort(a []int, n int) {
+	for i := 0; i < n; i++ {
 		change := false
-		for j := 0; j < n - i -1; j++  {
+		for j := 0; j < n-i-1; j++ {
 			if a[j] > a[j+1] {
 				a[j+1], a[j] = a[j], a[j+1]
 				change = true
@@ -18,17 +18,17 @@ func BubbleSort(a []int, n int)  {
 
 }
 
-func InsertSort(a []int, n int)  {
+func InsertSort(a []int, n int) {
 	if n < 2 {
 		return
 	}
 	for i := 1; i < n; i++ {
 		tmp := a[i]
-		j := i -1
+		j := i - 1
 		for ; j > -1; j-- {
 			if tmp < a[j] {
 				a[j+1] = a[j]
-			} else {//前面是有序的....
+			} else { //前面是有序的....
 				break
 			}
 		}
@@ -36,7 +36,7 @@ func InsertSort(a []int, n int)  {
 	}
 }
 
-func SelectionSort(a []int, n int)  {
+func SelectionSort(a []int, n int) {
 	if n < 2 {
 		return
 	}

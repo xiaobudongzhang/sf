@@ -1,9 +1,9 @@
 package _2_dynamic
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
 
 func TestLwstDp(t *testing.T) {

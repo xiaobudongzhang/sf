@@ -1,9 +1,9 @@
 package _2_sorts_nlongn
 
 import (
-	"testing"
 	"fmt"
 	"runtime"
+	"testing"
 )
 
 func TestMergeSort(t *testing.T) {
@@ -14,9 +14,9 @@ func TestMergeSort(t *testing.T) {
 	fmt.Printf("after sort:\n", arr)
 }
 
-func PrintFunc()  {
+func PrintFunc() {
 	fmt.Println("--------------------------------------")
-	funName, _,_,ok := runtime.Caller(1)
+	funName, _, _, ok := runtime.Caller(1)
 	if ok {
 		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())
 	}

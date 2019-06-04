@@ -10,10 +10,10 @@ func CataFor(n int) uint64 {
 	h[0] = 1
 	h[1] = 1
 	for i := 2; i <= n; i++ {
-		for j:= 0; j < i; j++ {
+		for j := 0; j < i; j++ {
 			//根据递归式计算 h(i)= h(0)*h(i-1)+h(1)*h(i-2) + ... + h(i-1)h(0)
-			h[i] += (h[j] * h[i-1-j]);
+			h[i] += (h[j] * h[i-1-j])
 		}
 	}
-	return h[n];
+	return h[n]
 }

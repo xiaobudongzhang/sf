@@ -1,9 +1,9 @@
 package _6_linkedlist
 
 import (
-	"testing"
 	"fmt"
 	"runtime"
+	"testing"
 )
 
 func TestLinkedList_InsertToHead(t *testing.T) {
@@ -71,7 +71,7 @@ func TestLinkedList_Reverse(t *testing.T) {
 	linkedList.InsertToTail("newNode9")
 
 	step := linkedList.length / 2
-	if linkedList.length % 2 != 0{
+	if linkedList.length%2 != 0 {
 		step++
 	}
 	midP := linkedList.FindByIndex(step)
@@ -134,7 +134,6 @@ func TestLinkedList_DeleteBottomN(t *testing.T) {
 	linkedList.InsertToTail("newNode9")
 	linkedList.InsertToTail("newNode10")
 
-
 	linkedList.DeleteBottomN(-12)
 	linkedList.Print()
 }
@@ -154,13 +153,12 @@ func TestLinkedList_FindMiddleNode(t *testing.T) {
 	linkedList.InsertToTail("newNode9")
 	linkedList.InsertToTail("newNode10")
 
-
 	midP := linkedList.FindMiddleNode()
 	fmt.Printf("%v", midP.value)
 }
-func PrintFunc()  {
+func PrintFunc() {
 	fmt.Println("--------------------------------------")
-	funName, _,_,ok := runtime.Caller(1)
+	funName, _, _, ok := runtime.Caller(1)
 	if ok {
 		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())
 	}

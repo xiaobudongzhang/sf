@@ -1,9 +1,9 @@
 package _8_stack
 
 import (
-	"testing"
 	"fmt"
 	"runtime"
+	"testing"
 )
 
 func TestArrayStack_Push(t *testing.T) {
@@ -27,7 +27,6 @@ func TestArrayStack_Pop(t *testing.T) {
 	stack.Push(4)
 	stack.Push(5)
 
-
 	fmt.Printf("%v:%v\n", stack.Pop(), stack.top)
 }
 
@@ -42,9 +41,9 @@ func TestArrayStack_Top(t *testing.T) {
 	fmt.Printf("%v:%v\n", stack.stack, stack.Top())
 }
 
-func PrintFunc()  {
+func PrintFunc() {
 	fmt.Println("--------------------------------------")
-	funName, _,_,ok := runtime.Caller(1)
+	funName, _, _, ok := runtime.Caller(1)
 	if ok {
 		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())
 	}

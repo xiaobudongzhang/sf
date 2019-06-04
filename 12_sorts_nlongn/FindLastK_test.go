@@ -1,8 +1,8 @@
 package _2_sorts_nlongn
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestFindLastK(t *testing.T) {

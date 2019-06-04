@@ -1,8 +1,8 @@
 package greedy
 
 import (
-	"sort"
 	"fmt"
+	"sort"
 )
 
 func FindContentChildren(g []int, s []int) int {
@@ -11,7 +11,7 @@ func FindContentChildren(g []int, s []int) int {
 	sort.Ints(s)
 	fmt.Printf("%v,%v\n", g, s)
 	max, i, j := 0, 0, 0
-	for i< len(g) && j < len(s) {
+	for i < len(g) && j < len(s) {
 		if s[j] >= g[i] {
 			i++
 			max++

@@ -9,7 +9,7 @@ import (
 func TestCataFor(t *testing.T) {
 	lib.PrintFunc()
 
-	for i := 1;i< 30;i++  {
+	for i := 1; i < 30; i++ {
 		req := i
 		res := CataFor(req)
 

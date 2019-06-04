@@ -6,14 +6,15 @@ import (
 )
 
 type Node struct {
-	Ele interface{}
-	Left *Node
+	Ele   interface{}
+	Left  *Node
 	Right *Node
 }
 
 type TreeList struct {
 	Root *Node
 }
+
 func NewTreeList() *TreeList {
 
 	tree := &TreeList{
@@ -23,14 +24,14 @@ func NewTreeList() *TreeList {
 }
 func NewNode(ele interface{}) *Node {
 	return &Node{
-		Ele:ele,
-		Left:nil,
-		Right:nil,
+		Ele:   ele,
+		Left:  nil,
+		Right: nil,
 	}
 }
 
 //递归前序创建
-func (this *TreeList)InitEle(node **Node) {
+func (this *TreeList) InitEle(node **Node) {
 	var inputEle string
 	inputEle = "0"
 	fmt.Scanf("%s", &inputEle)
@@ -45,8 +46,9 @@ func (this *TreeList)InitEle(node **Node) {
 	this.InitEle(&(*node).Right)
 	return
 }
+
 //函数参数跟原指针是不同的指针，指向同一个地址，改变参数的指针指向不会改变原指针的指向
-func (this *TreeList)InitEle2(node *Node) {
+func (this *TreeList) InitEle2(node *Node) {
 	var inputEle string
 	inputEle = "0"
 	fmt.Scanf("%s", &inputEle)
@@ -61,7 +63,7 @@ func (this *TreeList)InitEle2(node *Node) {
 	this.InitEle2(node.Right)
 	return
 }
-func (this *TreeList)InOrderPrint()  {
+func (this *TreeList) InOrderPrint() {
 	lists := list.New()
 	lists.PushBack(this.Root)
 	i := 0
@@ -82,15 +84,16 @@ func (this *TreeList)InOrderPrint()  {
 			lists.PushBack(elev.Right)
 		}
 
-		if i == qlen {//这一层级走完
+		if i == qlen { //这一层级走完
 			i = 0
 			qlen = lists.Len()
 			fmt.Println("")
 		}
 	}
 }
+
 //self -> left -> right
-func (this *TreeList)PreOrderPrint(node *Node){
+func (this *TreeList) PreOrderPrint(node *Node) {
 	if node == nil {
 		return
 	}
@@ -99,7 +102,7 @@ func (this *TreeList)PreOrderPrint(node *Node){
 	this.PreOrderPrint(node.Right)
 }
 
-func (this *TreeList)MidOrderPrint(node *Node){
+func (this *TreeList) MidOrderPrint(node *Node) {
 	if node == nil {
 		return
 	}
@@ -108,7 +111,7 @@ func (this *TreeList)MidOrderPrint(node *Node){
 	this.MidOrderPrint(node.Right)
 }
 
-func (this *TreeList)PostOrderPrint(node *Node){
+func (this *TreeList) PostOrderPrint(node *Node) {
 	if node == nil {
 		return
 	}

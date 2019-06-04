@@ -17,6 +17,5 @@ func TestTree_Print(t *testing.T) {
 
 	tree.Print()
 
-
 	tree.InOrderPrint()
 }

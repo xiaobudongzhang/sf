@@ -1,9 +1,9 @@
 package _9_hashmap
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
 
 func TestHashMap_Insert(t *testing.T) {
@@ -36,4 +36,3 @@ func TestHashMap_Insert(t *testing.T) {
 	fmt.Printf("findIndex3：%v\n", findIndex3)
 
 }
-

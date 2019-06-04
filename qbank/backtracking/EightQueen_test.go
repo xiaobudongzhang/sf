@@ -1,8 +1,8 @@
 package backtracking
 
 import (
-	"testing"
 	"lib"
+	"testing"
 )
 
 func TestEightQueen(t *testing.T) {

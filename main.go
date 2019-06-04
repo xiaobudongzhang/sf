@@ -5,7 +5,7 @@ import (
 	"github.com/xiaobudongzhang/sf/data_structure/tree/binary_tree"
 )
 
-func main()  {
+func main() {
 	tree := binary_tree.NewTreeList()
 
 	tree.InitEle(&tree.Root)

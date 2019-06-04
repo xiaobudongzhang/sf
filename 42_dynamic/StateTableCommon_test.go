@@ -1,9 +1,9 @@
 package _2_dynamic
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
 
 func TestLwstCommon(t *testing.T) {
@@ -12,4 +12,3 @@ func TestLwstCommon(t *testing.T) {
 	max := LwstCommon("mitcmu", "mtacnu")
 	fmt.Printf("max:%v\n", max)
 }
-

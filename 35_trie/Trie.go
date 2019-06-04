@@ -1,28 +1,28 @@
 package _5_trie
 
 import (
-	"fmt"
 	"09_queue"
+	"fmt"
 )
 
 type TrieNode struct {
-	data byte
-	children [27]*TrieNode//为了区分初始化的byte0 与a的区别 多加一位，默认是数组0 a是1
+	data         byte
+	children     [27]*TrieNode //为了区分初始化的byte0 与a的区别 多加一位，默认是数组0 a是1
 	isEndingChar bool
-	fail *TrieNode
-	length int
+	fail         *TrieNode
+	length       int
 }
 
 type Trie struct {
-	root *TrieNode
+	root      *TrieNode
 	startChar byte
 }
 
 func NewTrieNode(data byte) *TrieNode {
 	return &TrieNode{
-		data:data,
-		isEndingChar:false,
-		length:-1,
+		data:         data,
+		isEndingChar: false,
+		length:       -1,
 	}
 }
 
@@ -33,7 +33,7 @@ func NewTrie() *Trie {
 	}
 }
 
-func (this *Trie)Insert(text string)  {
+func (this *Trie) Insert(text string) {
 	p := this.root
 
 	for _, v := range text {
@@ -50,7 +50,7 @@ func (this *Trie)Insert(text string)  {
 	p.length = len(text)
 }
 
-func (this *Trie)Find(text string)  bool{
+func (this *Trie) Find(text string) bool {
 	p := this.root
 
 	for _, v := range text {
@@ -67,38 +67,39 @@ func (this *Trie)Find(text string)  bool{
 	}
 	return true
 }
+
 //按层级构造失败指针
-func (this *Trie) BuildFailurePointer(){
+func (this *Trie) BuildFailurePointer() {
 	p := this.root
 	queue := _9_queue.NewLinkedListQueue()
 	this.root.fail = nil
 
 	queue.EnQueue(p)
-	for !queue.IsEmpty(){
+	for !queue.IsEmpty() {
 		p := queue.DeQueue().(*TrieNode)
 
-		for _,v := range p.children  {
+		for _, v := range p.children {
 			if v == nil || v.data == 0 {
 				continue
 			}
-			if p == this.root {//如果是根节点的话，则子类的fail都指向根节点
+			if p == this.root { //如果是根节点的话，则子类的fail都指向根节点
 				v.fail = this.root
 				queue.EnQueue(v)
 				continue
 			}
 			q := p.fail
-			for q != nil  {//核心点
+			for q != nil { //核心点
 				index := v.data - (this.startChar)
 				qc := q.children[index]
 
-				if qc != nil {//两者相等 pc 跟qc相等
+				if qc != nil { //两者相等 pc 跟qc相等
 					v.fail = qc
 					break
 				}
 
 				q = q.fail
 			}
-			if q == nil {//如果没有失败的子节点了就指向根节点
+			if q == nil { //如果没有失败的子节点了就指向根节点
 				v.fail = this.root
 			}
 			queue.EnQueue(v)
@@ -106,11 +107,11 @@ func (this *Trie) BuildFailurePointer(){
 	}
 }
 
-func (this *Trie) Match(a string)  {
+func (this *Trie) Match(a string) {
 
 	p := this.root
 
-	for i,v := range a{
+	for i, v := range a {
 		index := v - int32(this.startChar)
 		//1.部分失败的话找子类
 		for p.children[index] == nil && p != this.root {
@@ -118,26 +119,26 @@ func (this *Trie) Match(a string)  {
 		}
 		p = p.children[index]
 		//2.没找到的话结束
-		if p == nil {//如果没有匹配的从root重新开始,并且查找字符向下走
+		if p == nil { //如果没有匹配的从root重新开始,并且查找字符向下走
 			p = this.root
 			continue
 		}
 		//3.找到的话，循环打印并结束
 		tmp := p
-		for tmp != this.root  {//整个for循环结束，查找字符往下走
+		for tmp != this.root { //整个for循环结束，查找字符往下走
 			if tmp.isEndingChar == true {
 				pos := i - tmp.length + 1
-				fmt.Printf("匹配的起始下标：%v;长度：%v",pos, tmp.length)
+				fmt.Printf("匹配的起始下标：%v;长度：%v", pos, tmp.length)
 			}
 			tmp = tmp.fail
 		}
 
-
 	}
 }
+
 //按层遍历
 
-func (this *Trie)InOrder() int{
+func (this *Trie) InOrder() int {
 	p := this.root
 	q := _9_queue.NewLinkedListQueue()
 
@@ -147,13 +148,13 @@ func (this *Trie)InOrder() int{
 	i := 0
 	height := 0
 	fmt.Printf("level:0--")
-	for !q.IsEmpty(){
+	for !q.IsEmpty() {
 		p := q.DeQueue().(*TrieNode)
 		fmt.Printf("%+v ", string(p.data))
-		if p.fail != nil{
+		if p.fail != nil {
 			fmt.Printf("(%+v)  ", string(p.fail.data))
 		}
-		for _,v := range p.children  {
+		for _, v := range p.children {
 
 			if v == nil || v.data == 0 {
 				continue

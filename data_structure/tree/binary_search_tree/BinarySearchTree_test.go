@@ -9,8 +9,8 @@ import (
 func TestBinarySearchTree_Find(t *testing.T) {
 	lib.PrintFunc()
 	tree := NewBinaryNode()
-	insertDatas := []int{13,10,9,11,16,14}
-	for _,data := range insertDatas  {
+	insertDatas := []int{13, 10, 9, 11, 16, 14}
+	for _, data := range insertDatas {
 		tree.Insert(data)
 	}
 	tree.InOrderPrint()
@@ -19,8 +19,8 @@ func TestBinarySearchTree_Find(t *testing.T) {
 func TestBinarySearchTree_Delete(t *testing.T) {
 	lib.PrintFunc()
 	tree := NewBinaryNode()
-	insertDatas := []int{13,10,9,11,16,14}
-	for _,data := range insertDatas  {
+	insertDatas := []int{13, 10, 9, 11, 16, 14}
+	for _, data := range insertDatas {
 		tree.Insert(data)
 	}
 
@@ -32,8 +32,8 @@ func TestBinarySearchTree_Delete(t *testing.T) {
 	fmt.Printf("-------------16--------------\n")
 
 	tree = NewBinaryNode()
-	insertDatas = []int{13,10,9,11,16,14}
-	for _,data := range insertDatas  {
+	insertDatas = []int{13, 10, 9, 11, 16, 14}
+	for _, data := range insertDatas {
 		tree.Insert(data)
 	}
 	tree.Delete(16)
@@ -41,8 +41,8 @@ func TestBinarySearchTree_Delete(t *testing.T) {
 	fmt.Printf("--------------11-------------\n")
 
 	tree = NewBinaryNode()
-	insertDatas = []int{13,10,9,11,16,14}
-	for _,data := range insertDatas  {
+	insertDatas = []int{13, 10, 9, 11, 16, 14}
+	for _, data := range insertDatas {
 		tree.Insert(data)
 	}
 	tree.Delete(11)

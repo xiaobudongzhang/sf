@@ -1,11 +1,10 @@
 package _3_tree
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
-
 
 func TestBinaryTree_InOrder(t *testing.T) {
 	lib.PrintFunc()

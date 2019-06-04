@@ -4,24 +4,24 @@ package _2_sorts_nlongn
 
 //1.merge_sort(p..r) = merge(merge_sort(p...q), merge(q+1...r))
 //2.p>=r
-func MergeSort(a []int){
+func MergeSort(a []int) {
 	if len(a) < 1 {
 		return
 	}
-	mergeSortChild(a, 0, len(a) -1)
+	mergeSortChild(a, 0, len(a)-1)
 }
 
-func mergeSortChild(a []int, p int, r int)  {
+func mergeSortChild(a []int, p int, r int) {
 	if p >= r {
 		return
 	}
 	q := (p + r) / 2
 	mergeSortChild(a, p, q)
-	mergeSortChild(a, q + 1, r)
+	mergeSortChild(a, q+1, r)
 	merge(a, p, q, r)
 }
 
-func merge(a []int, p int, q int, r int)  {
+func merge(a []int, p int, q int, r int) {
 	newArr := make([]int, len(a))
 	pi := p
 	pj := q + 1
@@ -49,4 +49,3 @@ func merge(a []int, p int, q int, r int)  {
 
 	copy(a[p:r+1], newArr)
 }
-

@@ -5,25 +5,24 @@ import (
 	"runtime"
 )
 
-func PrintFunc()  {
+func PrintFunc() {
 	fmt.Println("--------------------------------------")
-	funName, _,_,ok := runtime.Caller(1)
+	funName, _, _, ok := runtime.Caller(1)
 	if ok {
 		fmt.Println("v1.1-funName+" + runtime.FuncForPC(funName).Name())
 	}
 }
 
-func Hash33(k interface{}, size int) int{
+func Hash33(k interface{}, size int) int {
 	//time33
 	hash := 5381
-	for _,v := range k.(string) {
+	for _, v := range k.(string) {
 		hash += (hash << 5) + int(v)
 	}
 	return (hash & 0x7FFFFFFF) % size
 }
 
-
-func Min(a []int)  int{
+func Min(a []int) int {
 	min := a[0]
 	for i := 0; i < len(a); i++ {
 		if min > a[i] {
@@ -43,7 +42,7 @@ func Max(a []int) int {
 	return max
 }
 
-func MinInt(a,b int) int {
+func MinInt(a, b int) int {
 	if a > b {
 		return b
 	}

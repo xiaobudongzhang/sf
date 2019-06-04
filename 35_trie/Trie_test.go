@@ -1,8 +1,8 @@
 package _5_trie
 
 import (
-	"testing"
 	"lib"
+	"testing"
 	//"fmt"
 	"fmt"
 )
@@ -21,8 +21,7 @@ func TestTrie_Insert(t *testing.T) {
 
 	trie.InOrder()
 
-
 	f1 := trie.Find("see")
 	f2 := trie.Find("se")
-	fmt.Printf("f1:%v,f2:%v\n",f1, f2)
+	fmt.Printf("f1:%v,f2:%v\n", f1, f2)
 }

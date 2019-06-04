@@ -1,8 +1,8 @@
 package _0_graph
 
 import (
-	"testing"
 	"lib"
+	"testing"
 	//"fmt"
 )
 
@@ -14,10 +14,10 @@ func TestGraph_InsertA(t *testing.T) {
 	graph.InsertA(2)
 	graph.InsertA(3)
 
-	graph.InsertOfA(1,2)
-	graph.InsertOfA(2,3)
-	graph.InsertOfA(2,4)
-	graph.InsertOfA(2,5)
+	graph.InsertOfA(1, 2)
+	graph.InsertOfA(2, 3)
+	graph.InsertOfA(2, 4)
+	graph.InsertOfA(2, 5)
 
 	graph.Print()
 }

@@ -5,17 +5,17 @@ import (
 )
 
 type ListNode struct {
-	next *ListNode
+	next  *ListNode
 	value interface{}
 }
 
 type LinkedList struct {
-	head *ListNode
+	head   *ListNode
 	length uint
 }
 
 func NewListNode(v interface{}) *ListNode {
-	return &ListNode{nil,v}
+	return &ListNode{nil, v}
 }
 
 func NewLinkedList() *LinkedList {
@@ -46,7 +46,7 @@ func (this *LinkedList) InsertAfter(p *ListNode, v interface{}) bool {
 
 func (this *LinkedList) FindPrev(p *ListNode) *ListNode {
 	prev := this.head
-	for   {
+	for {
 		if prev.next == p {
 			break
 		}
@@ -54,7 +54,7 @@ func (this *LinkedList) FindPrev(p *ListNode) *ListNode {
 	}
 	return prev
 }
-func (this *LinkedList) InsertBefore(p *ListNode, v interface{}) bool  {
+func (this *LinkedList) InsertBefore(p *ListNode, v interface{}) bool {
 	if nil == p || this.head == p {
 		return false
 	}
@@ -80,7 +80,6 @@ func (this *LinkedList) InsertToTail(v interface{}) bool {
 	this.InsertAfter(cur, v)
 	return true
 }
-
 
 func (this *LinkedList) FindByIndex(index uint) *ListNode {
 	if index >= this.length {
@@ -143,7 +142,7 @@ func (this *LinkedList) Reverse(start *ListNode) bool {
 	var newLinkHead *ListNode = nil
 	cur := start.next
 
-	for nil != cur  {
+	for nil != cur {
 		oldNext := cur.next
 		cur.next = newLinkHead
 		newLinkHead = cur
@@ -153,7 +152,7 @@ func (this *LinkedList) Reverse(start *ListNode) bool {
 	return true
 }
 
-func (this *LinkedList) HasCycle() bool  {
+func (this *LinkedList) HasCycle() bool {
 	slow := this.head
 	fast := this.head
 	for nil != slow.next && nil != fast.next.next {
@@ -166,7 +165,7 @@ func (this *LinkedList) HasCycle() bool  {
 	return false
 }
 
-func (this *LinkedList) MergeSortedList(that *LinkedList) *LinkedList  {
+func (this *LinkedList) MergeSortedList(that *LinkedList) *LinkedList {
 	linkedList := NewLinkedList()
 
 	thisCur := this.head.next
@@ -203,12 +202,12 @@ func (this *LinkedList) MergeSortedList(that *LinkedList) *LinkedList  {
 	return linkedList
 }
 
-func (this *LinkedList) DeleteBottomN(n int) bool{
+func (this *LinkedList) DeleteBottomN(n int) bool {
 	if this.head.next == nil {
 		return true
 	}
 	fastP := this.head.next
-	for i := 0; i<= n && fastP != nil; i++ {
+	for i := 0; i <= n && fastP != nil; i++ {
 		fastP = fastP.next
 	}
 
@@ -226,7 +225,7 @@ func (this *LinkedList) DeleteBottomN(n int) bool{
 	return true
 }
 
-func (this *LinkedList) FindMiddleNode() *ListNode{
+func (this *LinkedList) FindMiddleNode() *ListNode {
 	if this.head.next == nil {
 		return NewListNode(nil)
 	}
@@ -240,12 +239,12 @@ func (this *LinkedList) FindMiddleNode() *ListNode{
 	return slow
 }
 
-func (this *LinkedList) Print()  {
+func (this *LinkedList) Print() {
 
 	cur := this.head.next
 	fmt.Printf("length:%d\n", this.length)
-	for i := uint(0); i <= this.length ; i++ {
-		if (cur == nil){
+	for i := uint(0); i <= this.length; i++ {
+		if cur == nil {
 			break
 		}
 		fmt.Printf("value:%+v\n", cur.GetValue())
@@ -257,15 +256,14 @@ func (this *LinkedList) RemoveNthFromEnd(n int) *ListNode {
 	//快慢指针来一趟遍历,慢指针指向被删除的元素的前一个元素
 	fmt.Printf("%v\n", this.head)
 	slow := this.head
-	p :=  this.head
+	p := this.head
 	i := 0
-
 
 	for p.next != nil {
 		break
 		if i < n {
 			i++
-		}else{
+		} else {
 			slow = slow.next
 		}
 		p = p.next

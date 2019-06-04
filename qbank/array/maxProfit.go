@@ -5,13 +5,13 @@ func MaxProfit(prices []int) int {
 	low := prices[0]
 	sum := 0
 
-	for i:=0; i<len(prices) - 1; i++  {
+	for i := 0; i < len(prices)-1; i++ {
 
-		if prices[i]  < low {
+		if prices[i] < low {
 			low = prices[i]
 		}
 
-		if prices[i+1] < prices[i] {//顶点，卖出
+		if prices[i+1] < prices[i] { //顶点，卖出
 			sum += prices[i] - low
 			low = prices[i+1]
 		}

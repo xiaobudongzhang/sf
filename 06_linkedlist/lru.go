@@ -12,10 +12,10 @@ package _6_linkedlist
 
 type LRU struct {
 	linkedList *LinkedList
-	length uint
+	length     uint
 }
 
-func NewLRU(length uint)  *LRU{
+func NewLRU(length uint) *LRU {
 	return &LRU{NewLinkedList(), length}
 }
 

@@ -1,8 +1,8 @@
 package _8_heap
 
 import (
-	"testing"
 	"lib"
+	"testing"
 )
 
 func TestHeap_Insert(t *testing.T) {

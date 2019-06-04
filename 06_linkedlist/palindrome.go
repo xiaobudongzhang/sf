@@ -1,6 +1,5 @@
 package _6_linkedlist
 
-
 /*
 1 快慢指针定位中间节点
 2 从中间节点对后半部分逆序
@@ -25,7 +24,7 @@ func IsPalindrome(l *LinkedList) bool {
 	//1 快慢指针定位中间节点
 	stepOld := l.length / 2
 	step := stepOld
-	if l.length % 2 != 0{
+	if l.length%2 != 0 {
 		step++
 	}
 	midP := l.FindByIndex(step)

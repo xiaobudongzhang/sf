@@ -1,9 +1,9 @@
 package _11_sorts
 
 import (
-	"testing"
 	"fmt"
 	"runtime"
+	"testing"
 )
 
 func TestBubbleSort(t *testing.T) {
@@ -29,9 +29,9 @@ func TestSelectionSort(t *testing.T) {
 	SelectionSort(arr, len(arr))
 	fmt.Printf("after sort:\n", arr)
 }
-func PrintFunc()  {
+func PrintFunc() {
 	fmt.Println("--------------------------------------")
-	funName, _,_,ok := runtime.Caller(1)
+	funName, _, _, ok := runtime.Caller(1)
 	if ok {
 		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())
 	}

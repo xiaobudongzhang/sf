@@ -1,8 +1,8 @@
 package _6_linkedlist
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestIsPalindrome(t *testing.T) {

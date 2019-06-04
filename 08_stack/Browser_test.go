@@ -1,8 +1,8 @@
 package _8_stack
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestBrowser_Prev(t *testing.T) {

@@ -1,8 +1,8 @@
 package _5_array
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestArray_Insert(t *testing.T) {
@@ -41,7 +41,7 @@ func TestArray_Print(t *testing.T) {
 	capacity := 10
 	arr := NewArray(uint(capacity))
 
-	for i:= 0; i< capacity; i++ {
+	for i := 0; i < capacity; i++ {
 		err := arr.Insert(uint(i), i+1)
 
 		if err != nil {

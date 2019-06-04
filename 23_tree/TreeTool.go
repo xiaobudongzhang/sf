@@ -7,12 +7,12 @@ import (
 )
 
 //计算树的高度....
-func (this *BST) Height(p *Node) int{
+func (this *BST) Height(p *Node) int {
 	lHeight := 0
 	rHeight := 0
 
 	if p == nil {
-		return  0
+		return 0
 	}
 
 	lHeight = this.Height(p.left)
@@ -20,12 +20,12 @@ func (this *BST) Height(p *Node) int{
 
 	if lHeight > rHeight {
 		return lHeight + 1
-	}else {
+	} else {
 		return rHeight + 1
 	}
 }
 
-func (this *BST) Height2(p *Node) float64{
+func (this *BST) Height2(p *Node) float64 {
 	if p == nil {
 		return 0
 	}
@@ -34,7 +34,7 @@ func (this *BST) Height2(p *Node) float64{
 
 //按层遍历(返回树的高度)
 
-func (this *BST)InOrder() int{
+func (this *BST) InOrder() int {
 	p := this.root
 	q := _9_queue.NewLinkedListQueue()
 
@@ -44,7 +44,7 @@ func (this *BST)InOrder() int{
 	i := 0
 	height := 0
 	fmt.Printf("level:0--")
-	for !q.IsEmpty(){
+	for !q.IsEmpty() {
 		p := q.DeQueue().(*Node)
 		fmt.Printf("%+v ", p.data)
 
@@ -70,5 +70,3 @@ func (this *BST)InOrder() int{
 	fmt.Printf("height:%v\n", height)
 	return height
 }
-
-

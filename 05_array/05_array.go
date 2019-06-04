@@ -6,26 +6,26 @@ import (
 )
 
 type Array struct {
-	data []int
+	data   []int
 	length uint
 }
 
-func NewArray(capacity uint) *Array{
+func NewArray(capacity uint) *Array {
 	if capacity < 1 {
 		return nil
 	}
 
 	return &Array{
-		data: make([]int, capacity,capacity),
+		data:   make([]int, capacity, capacity),
 		length: 0,
 	}
 }
 
-func (this *Array) Len() uint{
+func (this *Array) Len() uint {
 	return this.length
 }
 
-func (this *Array) isIndexOutOfRange(index uint) bool{
+func (this *Array) isIndexOutOfRange(index uint) bool {
 	if index >= uint(cap(this.data)) {
 		return true
 	}
@@ -39,14 +39,14 @@ func (this *Array) Find(index uint) (int, error) {
 	return this.data[index], nil
 }
 
-func (this *Array) Insert(index uint, v int) error  {
+func (this *Array) Insert(index uint, v int) error {
 	if this.isIndexOutOfRange(index) {
-		return errors.New( fmt.Sprintf("%d %s", index ,"out of index range"))
+		return errors.New(fmt.Sprintf("%d %s", index, "out of index range"))
 	}
 	if this.Len() >= uint(cap(this.data)) {
 		return errors.New("Full array")
 	}
-	for i := this.Len();i > index;i--  {
+	for i := this.Len(); i > index; i-- {
 		this.data[i] = this.data[i-1]
 	}
 	this.data[index] = v
@@ -59,7 +59,7 @@ func (this *Array) Delete(index uint) (int, error) {
 		return 0, errors.New("Out of index range")
 	}
 	v := this.data[index]
-	for i := index;i < this.Len() - 1;i++ {
+	for i := index; i < this.Len()-1; i++ {
 		this.data[i] = this.data[i+1]
 	}
 	this.length--
@@ -67,7 +67,7 @@ func (this *Array) Delete(index uint) (int, error) {
 }
 
 func (this *Array) Print() {
-	for i := uint(0); i < this.Len(); i++{
+	for i := uint(0); i < this.Len(); i++ {
 		fmt.Printf("%d \n", this.data[i])
 	}
 }

@@ -54,9 +54,9 @@ func TestHashMap_Delete(t *testing.T) {
 	list.Delete("31")
 	list.Print()
 }
-func PrintFunc()  {
+func PrintFunc() {
 	fmt.Println("--------------------------------------")
-	funName, _,_,ok := runtime.Caller(1)
+	funName, _, _, ok := runtime.Caller(1)
 	if ok {
 		fmt.Println("funName+" + runtime.FuncForPC(funName).Name())
 	}

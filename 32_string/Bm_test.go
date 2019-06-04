@@ -1,9 +1,9 @@
 package _2_string
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
 
 func TestGenerateBC(t *testing.T) {
@@ -24,7 +24,7 @@ func TestGenerateGS(t *testing.T) {
 	lib.PrintFunc()
 
 	suffix, prefix := GenerateGS("cabcab")
-	fmt.Printf("suffix:%v,prefix:%v\n", suffix,prefix)
+	fmt.Printf("suffix:%v,prefix:%v\n", suffix, prefix)
 }
 
 func TestBm(t *testing.T) {

@@ -4,20 +4,20 @@ package _2_sorts_nlongn
 
 //1.quick_sort(p...r) = quick_sort(p...q-1)+quick_sort(q+1,r)
 //2.p>=r
-func QuickSort(a []int)  {
+func QuickSort(a []int) {
 	if len(a) < 2 {
 		return
 	}
-	quickSortChild(a, 0, len(a) - 1)
+	quickSortChild(a, 0, len(a)-1)
 }
 
-func quickSortChild(a []int, p int, r int)  {
+func quickSortChild(a []int, p int, r int) {
 	if p >= r {
 		return
 	}
 	q := partition(a, p, r)
-	quickSortChild(a, p, q - 1)
-	quickSortChild(a, q + 1, r)
+	quickSortChild(a, p, q-1)
+	quickSortChild(a, q+1, r)
 }
 
 func partition(a []int, p int, r int) int {

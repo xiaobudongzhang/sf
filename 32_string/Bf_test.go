@@ -1,9 +1,9 @@
 package _2_string
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
 
 func TestBf(t *testing.T) {

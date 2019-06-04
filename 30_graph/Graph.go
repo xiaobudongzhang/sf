@@ -3,7 +3,7 @@ package _0_graph
 import "fmt"
 
 type Node struct {
-	v interface{}
+	v    interface{}
 	next *Node
 }
 
@@ -12,11 +12,11 @@ type Graph struct {
 }
 
 func NewGraph(size int) *Graph {
-	datasArr := make([]*Node, size,size)
-	for i:=0;i<size ;i++  {
+	datasArr := make([]*Node, size, size)
+	for i := 0; i < size; i++ {
 		datasArr[i] = &Node{
-			v:nil,
-			next:nil,
+			v:    nil,
+			next: nil,
 		}
 	}
 	//第一个node存储的是a
@@ -27,23 +27,23 @@ func NewGraph(size int) *Graph {
 
 func NewNode(v interface{}) *Node {
 	return &Node{
-		v:v,
-		next:nil,
+		v:    v,
+		next: nil,
 	}
 }
 
-func (this *Graph) InsertA(a interface{}){
+func (this *Graph) InsertA(a interface{}) {
 
-	for i:=0 ;i<len(this.datas);i++{
-			if this.datas[i].v == nil{
-				continue
-			}
-			if this.datas[i].v == a {
-				return
-			}
+	for i := 0; i < len(this.datas); i++ {
+		if this.datas[i].v == nil {
+			continue
+		}
+		if this.datas[i].v == a {
+			return
+		}
 	}
 
-	for i:=0 ;i<len(this.datas);i++{
+	for i := 0; i < len(this.datas); i++ {
 		if this.datas[i].v == nil {
 			this.datas[i].v = a
 			return
@@ -51,10 +51,10 @@ func (this *Graph) InsertA(a interface{}){
 	}
 }
 
-func (this *Graph) InsertOfA(a interface{}, bofa interface{}){
+func (this *Graph) InsertOfA(a interface{}, bofa interface{}) {
 
 	index := -1
-	for i:=0 ;i<len(this.datas);i++{
+	for i := 0; i < len(this.datas); i++ {
 		if this.datas[i].v == a {
 			index = i
 			break
@@ -73,15 +73,15 @@ func (this *Graph) InsertOfA(a interface{}, bofa interface{}){
 
 func (this *Graph) Print() {
 
-	for i:=0;i<len(this.datas) ;i++  {
+	for i := 0; i < len(this.datas); i++ {
 
-		if this.datas[i].v == nil{
+		if this.datas[i].v == nil {
 			continue
 		}
-		if this.datas[i].v.(int) < 1{
+		if this.datas[i].v.(int) < 1 {
 			continue
 		}
-		fmt.Printf("%v:",this.datas[i].v)
+		fmt.Printf("%v:", this.datas[i].v)
 		pNode := this.datas[i]
 		for pNode != nil {
 			fmt.Printf("   %v ", pNode.v)

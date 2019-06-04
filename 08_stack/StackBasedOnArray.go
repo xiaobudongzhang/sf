@@ -1,28 +1,26 @@
 package _8_stack
 
-
-
 type ArrayStack struct {
 	stack []interface{}
-	top int
+	top   int
 }
 
-func NewArrayStack(n uint)  *ArrayStack{
+func NewArrayStack(n uint) *ArrayStack {
 	return &ArrayStack{
-		stack:make([]interface{}, n, n),
-		top:-1,
+		stack: make([]interface{}, n, n),
+		top:   -1,
 	}
 }
 
-func (this *ArrayStack) Push(val interface{})  {
-	if this.top + 1 >= len(this.stack) {
+func (this *ArrayStack) Push(val interface{}) {
+	if this.top+1 >= len(this.stack) {
 		return
 	}
 	this.top++
 	this.stack[this.top] = val
 }
 
-func (this *ArrayStack) Pop() interface{}{
+func (this *ArrayStack) Pop() interface{} {
 	if this.top == -1 {
 		return nil
 	}

@@ -9,12 +9,12 @@ import (
 func Intersect(nums1 []int, nums2 []int) []int {
 	sum := make([]int, 0)
 	position := 0
-	for i:=0;i<len(nums1);i++{
+	for i := 0; i < len(nums1); i++ {
 
-		for j:=0;j<len(nums2);j++{
-				if j < position {
-					continue
-				}
+		for j := 0; j < len(nums2); j++ {
+			if j < position {
+				continue
+			}
 			if nums1[i] == nums2[j] {
 				position++
 				sum = append(sum, nums1[i])
@@ -48,23 +48,23 @@ func ThreeSum(nums []int) [][]int {
 	var result [][]int
 	var i int
 
-	for i=0;i< numslen;i++{
+	for i = 0; i < numslen; i++ {
 
 		if nums[i] > 0 {
 			break
 		}
-		if i >0 && nums[i] == nums[i-1] {
+		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
 
 		target := 0 - nums[i]
-		low := i +1
-		hight := numslen -1
+		low := i + 1
+		hight := numslen - 1
 
 		for low < hight {
 			//fmt.Printf("low:%v-hight:%v\n",  low, hight)
-			fmt.Printf("%v:%v:%v\n", nums[low] , nums[hight],target)
-			if (nums[low] + nums[hight] == target) {
+			fmt.Printf("%v:%v:%v\n", nums[low], nums[hight], target)
+			if nums[low]+nums[hight] == target {
 				//fmt.Printf("%v:%v:%v\n", nums[low] , nums[hight],target)
 				result = append(result, []int{nums[i], nums[low], nums[hight]})
 
@@ -72,18 +72,18 @@ func ThreeSum(nums []int) [][]int {
 					low++
 				}
 
-				for low < hight && nums[hight] == nums[hight-1]  {
+				for low < hight && nums[hight] == nums[hight-1] {
 					hight--
 				}
 				low++
 				hight--
 
-			}else if (nums[low] + nums[hight] < target) {
+			} else if nums[low]+nums[hight] < target {
 				//fmt.Printf("low:%v-hight:%v\n",  low, hight)
 				low++
-			}else if (nums[low] + nums[hight] > target) {
+			} else if nums[low]+nums[hight] > target {
 				hight--
-			}else{
+			} else {
 				fmt.Printf("xyz\n")
 			}
 		}

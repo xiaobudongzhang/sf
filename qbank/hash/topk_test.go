@@ -1,9 +1,9 @@
 package hash
 
 import (
-	"testing"
-	"lib"
 	"fmt"
+	"lib"
+	"testing"
 )
 
 func TestTopKFrequent(t *testing.T) {

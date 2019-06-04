@@ -4,7 +4,7 @@ import "fmt"
 
 type Node struct {
 	next *Node
-	ele interface{}
+	ele  interface{}
 }
 
 type LinkedQueue struct {
@@ -12,16 +12,16 @@ type LinkedQueue struct {
 	tail *Node
 }
 
-func NewNode(ele interface{}) *Node  {
+func NewNode(ele interface{}) *Node {
 	return &Node{
-		ele:ele,
-		next:nil,
+		ele:  ele,
+		next: nil,
 	}
 }
-func NewLinkedQueue() *LinkedQueue  {
+func NewLinkedQueue() *LinkedQueue {
 	return &LinkedQueue{
-		head:nil,
-		tail:nil,
+		head: nil,
+		tail: nil,
 	}
 }
 
@@ -44,16 +44,16 @@ func (this *LinkedQueue) Dequeue() interface{} {
 	}
 	ele := this.head.ele
 	this.head = this.head.next
-	if this.head == nil {//if not do this, this tail pointer to a node
+	if this.head == nil { //if not do this, this tail pointer to a node
 		this.tail = nil
 	}
 	return ele
 }
 
-func (this *LinkedQueue) Print()  {
+func (this *LinkedQueue) Print() {
 	fmt.Printf("%v\n", this.tail)
 	cur := this.head
-	for cur != nil  {
+	for cur != nil {
 		fmt.Printf("-->%v", cur.ele)
 		cur = cur.next
 	}
