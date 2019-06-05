@@ -60,7 +60,7 @@ func (this *SkipList) Insert(ele interface{}, score float32) bool {
 	if lvl > this.level { //随机产生的层数大于现有的层数
 		for i := this.level; i < lvl; i++ {
 			rank[i] = 0
-			update[i] = this.head //指向下面的插入元素使用
+			update[i] = this.head //为了下面初始化forward时，head的forward指向newNode
 			update[i].level[i].span = this.length
 			//当层级大于当前最大层级时，
 			// 新节点的span=update[i].level[i].span - (rank[0] - rank[i])，
