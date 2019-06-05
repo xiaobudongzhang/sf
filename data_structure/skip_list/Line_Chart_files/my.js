@@ -1,5 +1,5 @@
 var maxlevel = 32
-var maxnum =1024
+var maxnum = 1024
 var MONTHS = [];
 var randData  = [];
 
