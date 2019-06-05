@@ -75,7 +75,12 @@ func (this *SkipList) Insert(ele interface{}, score float32) bool {
 		update[i].level[i].forward = newNode
 
 		/**
-		 * 总的减去前面的，如果是第0层则为1，因为update[0].level[0] = 1
+		 * 总的减去前面的，
+		 * update[i].level[i].span - (rank[0] - rank[i]) 等于
+		 * (update[i].level[i].span + 1) - (rank[0] + 1 - rank[i])
+		 *
+		 * (rank[0] - rank[i]) + 1 等于
+		 * (rank[0] + 1) - rank[0]
 		 */
 		newNode.level[i].span = update[i].level[i].span - (rank[0] - rank[i])
 		update[i].level[i].span = (rank[0] - rank[i]) + 1
