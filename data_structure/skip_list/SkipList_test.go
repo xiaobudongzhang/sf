@@ -11,7 +11,7 @@ func TestSkipList_Insert(t *testing.T) {
 	command.Init()
 	lib.PrintFunc()
 	skipList := NewSkipList()
-	for i := 1; i < 8; i++ {
+	for i := 1; i < 32; i++ {
 		skipList.Insert("ele"+strconv.Itoa(i), float32(i))
 	}
 	skipList.Print()
