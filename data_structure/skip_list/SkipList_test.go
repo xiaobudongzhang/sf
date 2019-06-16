@@ -15,6 +15,6 @@ func TestSkipList_Insert(t *testing.T) {
 		skipList.Insert("ele"+strconv.Itoa(i), float32(i))
 	}
 	skipList.Print()
-	skipList.Delete("ele"+strconv.Itoa(26), 26)
-	skipList.Print()
+	//skipList.Delete("ele"+strconv.Itoa(26), 26)
+	//skipList.Print()
 }
