@@ -48,6 +48,7 @@ func (this *TreeList) InitEle(node **Node) {
 }
 
 //函数参数跟原指针是不同的指针，指向同一个地址，改变参数的指针指向不会改变原指针的指向
+//所以传递指向指针的指针，这样的话，通过函数参数就能取到原指针了，从而进行修改
 func (this *TreeList) InitEle2(node *Node) {
 	var inputEle string
 	inputEle = "0"
