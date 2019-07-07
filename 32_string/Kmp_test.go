@@ -2,7 +2,8 @@ package _2_string
 
 import (
 	"fmt"
-	"lib"
+	"github.com/xiaobudongzhang/sf/lib"
+
 	"testing"
 )
 

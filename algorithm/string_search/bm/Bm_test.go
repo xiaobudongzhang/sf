@@ -1,8 +1,8 @@
-package _2_string
+package bm
 
 import (
 	"fmt"
-	"lib"
+	"github.com/xiaobudongzhang/sf/lib"
 	"testing"
 )
 
@@ -13,13 +13,6 @@ func TestGenerateBC(t *testing.T) {
 	fmt.Printf("bc:%v\n", bc)
 }
 
-func TestBadChar(t *testing.T) {
-	lib.PrintFunc()
-
-	index := BadChar("abcacabdc", "abd")
-	fmt.Printf("abd index:%v\n", index)
-}
-
 func TestGenerateGS(t *testing.T) {
 	lib.PrintFunc()
 
@@ -27,11 +20,13 @@ func TestGenerateGS(t *testing.T) {
 	fmt.Printf("suffix:%v,prefix:%v\n", suffix, prefix)
 }
 
-func TestBm(t *testing.T) {
+func TestSearch(t *testing.T) {
 	lib.PrintFunc()
 
-	f1 := Bm("baddabef", "abc")
-	f2 := Bm("aaddabcef", "abc")
+	f1 := 1//Search("baddabef", "abc")
+	f2 := 1//Search("aaddabcefabcav", "abca")
 
-	fmt.Printf("f1:%v,f2:%v\n", f1, f2)
+	f3 := Search("System.opt.println(stack.pop())", "pop")
+
+	fmt.Printf("f1:%v,f2:%v,f3:%v\n", f1, f2,f3)
 }
