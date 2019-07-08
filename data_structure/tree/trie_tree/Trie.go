@@ -7,7 +7,7 @@ import (
 
 type  TrieNode struct {
 	data byte
-	children [25]*TrieNode
+	children [26]*TrieNode
 	isEndingChar bool //是否是完整的字符串,比如插入he,her 则e也是字符结尾
 }
 

@@ -1,14 +1,13 @@
-package _5_trie
+package ac
 
 import (
-	"lib"
+	"github.com/xiaobudongzhang/sf/lib"
 	"testing"
-	//"fmt"
-	"fmt"
 )
 
-func TestTrie_Insert(t *testing.T) {
+func TestSearch(t *testing.T) {
 	lib.PrintFunc()
+
 
 	trie := NewTrie()
 	trie.Insert("how")
@@ -19,9 +18,7 @@ func TestTrie_Insert(t *testing.T) {
 	trie.Insert("see")
 	trie.Insert("alas")
 
-	trie.InOrder()
 
-	f1 := trie.Find("see")
-	f2 := trie.Find("se")
-	fmt.Printf("f1:%v,f2:%v\n", f1, f2)
+	trie.BuildFailurePointer()
+	trie.Search("helloiseeyouhealas")
 }
