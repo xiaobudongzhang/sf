@@ -1,8 +1,8 @@
 package n2
 
-func SelectionSort(a []int, n int) []int {
+func SelectionSort(a []int, n int)  {
 	if n <= 1 {
-		return a
+		return
 	}
 	for i := 0; i < n -1; i++ {
 		for j := i + 1; j < n; j++ {
@@ -11,5 +11,5 @@ func SelectionSort(a []int, n int) []int {
 			}
 		}
 	}
-	return a
+	return
 }

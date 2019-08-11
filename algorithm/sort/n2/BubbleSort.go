@@ -1,8 +1,8 @@
 package n2
 
-func BubbleSort(a []int, n int) []int {
+func BubbleSort(a []int, n int)  {
 	if n <= 1 {
-		return a
+		return
 	}
 	for i := 0;i<n ;i++  {
 		flag := false
@@ -17,5 +17,5 @@ func BubbleSort(a []int, n int) []int {
 			break
 		}
 	}
-	return a
+	return
 }

@@ -1,8 +1,8 @@
 package n2
 
-func InsertSort(a []int, n int) []int  {
+func InsertSort(a []int, n int)   {
 	if n <= 1 {
-		return a
+		return
 	}
 	for i := 1; i < n; i++ {//不断将i插入已排序的字段
 		for j := i; j > 0;j--  {
@@ -17,5 +17,5 @@ func InsertSort(a []int, n int) []int  {
 
 		}
 	}
-	return a
+	return
 }
