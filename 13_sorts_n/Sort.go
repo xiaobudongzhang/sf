@@ -1,8 +1,11 @@
 package _3_sorts_n
 
 import (
+	"fmt"
+	"github.com/xiaobudongzhang/sf/lib"
+
 	//"fmt"
-	"lib"
+	//"lib"
 	"math"
 )
 
@@ -11,16 +14,16 @@ import (
 func BucketSort(a []int) {
 	min := min(a)
 	max := max(a)
-	k := (max - min) / 10
+	k := (max - min) / 5
 
 	bucketMap := make(map[int][]int)
 	for i := 0; i < len(a); i++ {
-		index := a[i] / k
+		index := (a[i] - min )/ k
 		tmpArr := bucketMap[index]
 		tmpArr = append(tmpArr, a[i])
 		bucketMap[index] = tmpArr
 	}
-
+	fmt.Printf("%v\n", bucketMap)
 	for i := 0; i < max/k; i++ {
 		bubbleSort(bucketMap[i], len(bucketMap[i]))
 	}
