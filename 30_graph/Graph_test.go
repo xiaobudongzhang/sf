@@ -1,13 +1,13 @@
 package _0_graph
 
 import (
-	"lib"
+	//"lib"
 	"testing"
 	//"fmt"
 )
 
 func TestGraph_InsertA(t *testing.T) {
-	lib.PrintFunc()
+	//lib.PrintFunc()
 	graph := NewGraph(10)
 
 	graph.InsertA(1)
