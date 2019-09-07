@@ -13,7 +13,7 @@ func (graph *GraphMatrix) AddEdge(a int, b int, weight int) bool {
 	if a > graph.size || b > graph.size {
 		return false
 	}
-	
+
 	return true
 }
 
