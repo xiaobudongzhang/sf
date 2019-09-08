@@ -114,7 +114,7 @@ func (graph *GraphSearch) dfsRecur(s int, t int, visited []bool, prev []int)  {
 			current = current.Next()
 			continue
 		}
-		
+
 		prev[currentValue] = s
 		current = current.Next()
 		graph.dfsRecur(currentValue, t, visited, prev)
