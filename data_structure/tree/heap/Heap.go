@@ -4,21 +4,24 @@ import (
 	"container/list"
 	"fmt"
 )
+type Comparator func(a, b interface{}) int
 
 type Heap struct {
-	data []int //从下标1开始
+	data []interface{} //从下标1开始
 	n int //可以存储的数量
 	count int //现在存储的数量
+	comparator Comparator
 }
 
-func NewHeap(capacity int) *Heap {
+func NewHeap(capacity int, comparator Comparator) *Heap {
 	return &Heap{
-		data:make([]int, capacity + 1),
+		data:make([]interface{}, capacity + 1),
 		n:capacity,
+		comparator:comparator,
 	}
 }
 
-func (heap *Heap)Insert(data int) bool {
+func (heap *Heap)Insert(data interface{}) bool {
 	if heap.count >= heap.n {
 		return false
 	}
@@ -26,52 +29,71 @@ func (heap *Heap)Insert(data int) bool {
 	heap.data[heap.count] = data
 	//自下往上堆化
 	i := heap.count
-	for i/2 > 0 && heap.data[i] > heap.data[i/2]{
+	for i/2 > 0 && heap.comparator(heap.data[i], heap.data[i/2]) < 0{
 		heap.data[i], heap.data[i/2] = heap.data[i/2], heap.data[i]
 		i = i/2
 	}
 	return true
 }
-
-func (heap *Heap)RemoveMax() bool {
-	if heap.count == 0 {
-		return false
+//由于不是二叉查找树，所以先直接遍历
+func (heap *Heap)Update(oldData interface{},data interface{}) {
+	for i:=0; i< heap.count; i++ {
+		if heap.data[i] == oldData {
+			heap.data[i] = data
+		}
 	}
+	heap.heapify(heap.data, heap.count, 1)
+}
+
+func (heap *Heap) RemoveMin() interface{} {
+	if heap.count == 0 {
+		return nil
+	}
+	min := heap.data[1]
+
+
 	heap.data[1] = heap.data[heap.count]
+	heap.data[heap.count] = nil
 	heap.count--
-	heapify(heap.data, heap.count, 1)
-	return true
+	heap.heapify(heap.data, heap.count, 1)
+
+
+
+	return min
+}
+func (heap *Heap) Size() int {
+	return heap.count
 }
 
 //自上向下堆化
-func heapify(data []int, n int, i int)  {
+func (heap *Heap) heapify(data []interface{}, n int, i int)  {
 	for  {
-		maxPos := i
-		if 2 * i < n && data[2 * i] > data[i] {
-			maxPos = 2 * i	
+		minPos := i
+		if 2 * i <= n && heap.comparator(data[i], data[2 * i]) > 0{
+			minPos = 2 * i
 		}
-		if (2 * i + 1) < n && data[2*i+1] > data[maxPos] {
-			maxPos = 2 * i + 1
+		if (2 * i + 1) <= n && heap.comparator(data[minPos], data[2*i+1]) > 0 {
+			minPos = 2 * i + 1
 		}
-		if maxPos == i {
+		if minPos == i {
 			break
 		}
-		data[i], data[maxPos] = data[maxPos], data[i]
+		data[i], data[minPos] = data[minPos], data[i]
 	}
 }
 
-func buildHeap(data []int, n int) {
+func (heap *Heap)buildHeap(data []interface{}, n int) {
 	for i:= n/2;i>=1 ; i-- {
-		heapify(data, n, i)
+		heap.heapify(data, n, i)
 	}
 }
-
-func (heap *Heap)Sort(data []int){
+//@todo 待验证
+func (heap *Heap)Sort(data []interface{}){
 	k := len(data) - 1
-	buildHeap(data, k)
+	heap.buildHeap(data, k)
 	for k > 1  {
 		data[k], data[1] = data[1], data[k]
-		heapify(data, k, 1)
+		heap.heapify(data, k, 1)
 		k--
 	}
 }
@@ -103,4 +125,7 @@ func (heap *Heap)Print()  {
 			fmt.Println()
 		}
 	}
+}
+func (heap *Heap) Data() []interface{}{
+	return heap.data
 }
