@@ -93,3 +93,16 @@ func (graph *GraphList) Print() {
 		fmt.Println()
 	}
 }
+
+func (graph *GraphList) Data() []*node {
+	return graph.datas
+}
+
+
+func (node *node) Next() *node {
+	return node.next
+}
+
+func (node *node) Data() int {
+	return node.data
+}
