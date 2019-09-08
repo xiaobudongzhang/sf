@@ -3,7 +3,6 @@ package graph
 import "fmt"
 
 //邻接表
-//@todo 检查是否重复
 type node struct {
 	data int
 	next *node
@@ -33,6 +32,10 @@ func NewGraphList (size int) *GraphList {
 func (graph *GraphList) AddEdge(a int, b int) bool {
 	if a > graph.size || a < 1 || b < 1 {
 		return false
+	}
+	//检查是否已经添加
+	if graph.exitNode(a, b) == true {
+		return true
 	}
 	graph.addNode(a, b)
 	return true
@@ -78,6 +81,51 @@ func (graph *GraphList) removeNode(edge int, removeData int) bool {
 	}
 	removePrev.next = nil
 	return true
+}
+func (graph *GraphList) exitNode(edge int, addData int) bool {
+	current := graph.datas[edge]
+	for current != nil {
+		if current.data == -1 {
+			current = current.next
+			continue
+		}
+		if current.data == addData {
+			return true
+		}
+
+		current = current.next
+	}
+	return false
+}
+
+func (graph *GraphList) InList(edge int) bool {
+
+	//有子类的顶点
+	current := graph.datas[edge]
+	for current != nil {
+		if current.data == -1 {
+			current = current.next
+			continue
+		}
+		return true
+		current = current.next
+	}
+	//改顶点在子类中
+	for _,vp :=range graph.datas  {
+		current := vp
+		for current != nil {
+			if current.data == -1 {
+				current = current.next
+				continue
+			}
+			if current.data == edge {
+				return true
+			}
+			current = current.next
+		}
+	}
+
+	return false
 }
 
 func (graph *GraphList) Print() {
